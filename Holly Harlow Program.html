@@ -1,0 +1,2077 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Holly | OC">
+<title>Holly Harlow | OrthoCare Concierge</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Jost:wght@300;400;500;600&display=swap');
+
+:root {
+  --gold: #C9A84C;
+  --gold-light: #E2C97E;
+  --gold-dark: #9A7A2E;
+  --black: #111111;
+  --charcoal: #1E1E1E;
+  --dark: #252525;
+  --mid: #3A3A3A;
+  --muted: #6B6B6B;
+  --light: #F5F3EF;
+  --white: #FFFFFF;
+  --red: #C0392B;
+  --green: #27AE60;
+  --yellow: #F39C12;
+  --radius: 12px;
+  --radius-sm: 8px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+body {
+  font-family: 'Jost', sans-serif;
+  background: var(--black);
+  color: var(--white);
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===================== SPLASH ===================== */
+#splash {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px 60px;
+  background: linear-gradient(160deg, var(--charcoal) 0%, var(--black) 60%);
+  position: relative;
+  overflow: hidden;
+}
+
+#splash::before {
+  content: '';
+  position: absolute;
+  top: -100px; right: -100px;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(201,168,76,0.10) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.header-block {
+  text-align: center;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.provider-line {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.oc-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+
+/* OC SVG LOGO */
+.oc-svg { width: 56px; height: 42px; }
+
+.brand-text { text-align: left; }
+.brand-orthocare {
+  font-family: 'Jost', sans-serif;
+  font-weight: 600;
+  font-size: 21px;
+  letter-spacing: 0.1em;
+  color: var(--white);
+  display: block;
+  line-height: 1;
+}
+.brand-concierge {
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  font-size: 10.5px;
+  letter-spacing: 0.38em;
+  color: var(--gold);
+  text-transform: uppercase;
+  display: block;
+  margin-top: 3px;
+}
+.brand-llc {
+  font-size: 8.5px;
+  letter-spacing: 0.2em;
+  color: var(--muted);
+  font-weight: 300;
+}
+
+.gold-line { width: 48px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 18px auto; }
+
+.client-hero { text-align: center; margin-bottom: 36px; }
+.client-hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 46px;
+  font-weight: 300;
+  color: var(--white);
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+}
+.client-hero .subtitle {
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-top: 8px;
+}
+
+.nav-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  width: 100%;
+  max-width: 380px;
+}
+
+.nav-card {
+  background: var(--charcoal);
+  border: 1px solid rgba(201,168,76,0.18);
+  border-radius: var(--radius);
+  padding: 18px 14px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.22s ease;
+  position: relative;
+  overflow: hidden;
+}
+.nav-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold-dark), var(--gold-light));
+  transform: scaleX(0);
+  transition: transform 0.22s ease;
+}
+.nav-card:active { border-color: var(--gold); transform: translateY(-1px); }
+.nav-card:active::after { transform: scaleX(1); }
+.nav-card.full-width { grid-column: 1 / -1; }
+.nav-icon { font-size: 22px; margin-bottom: 7px; display: block; }
+.nav-card h3 { font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--white); margin-bottom: 3px; }
+.nav-card p { font-size: 10px; color: var(--muted); font-weight: 300; }
+
+.proprietary-line {
+  font-size: 9px;
+  color: var(--muted);
+  text-align: center;
+  margin-top: 28px;
+  letter-spacing: 0.12em;
+  line-height: 1.7;
+  font-weight: 300;
+  padding: 0 16px;
+}
+
+/* ===================== PAGES ===================== */
+.page { display: none; min-height: 100vh; background: var(--black); padding-bottom: 90px; }
+.page.active { display: block; }
+
+.page-header {
+  background: linear-gradient(135deg, var(--charcoal), var(--dark));
+  padding: 52px 20px 22px;
+  border-bottom: 1px solid rgba(201,168,76,0.13);
+  position: relative;
+}
+.back-btn {
+  position: absolute;
+  top: 14px; left: 14px;
+  background: none;
+  border: none;
+  color: var(--gold);
+  font-family: 'Jost', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  padding: 8px 4px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.page-header h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 30px;
+  font-weight: 300;
+  color: var(--white);
+}
+.page-header .page-sub {
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-top: 5px;
+  font-weight: 400;
+}
+.page-content { padding: 20px 14px; }
+
+.section-label {
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+  margin-top: 24px;
+  padding-left: 2px;
+}
+.section-label:first-child { margin-top: 0; }
+
+.card { background: var(--charcoal); border: 1px solid rgba(255,255,255,0.06); border-radius: var(--radius); padding: 14px; margin-bottom: 10px; }
+.card-gold { border-color: rgba(201,168,76,0.22); background: linear-gradient(135deg, var(--charcoal), rgba(201,168,76,0.04)); }
+.divider { height: 1px; background: rgba(255,255,255,0.06); margin: 18px 0; }
+
+/* ===================== TABS ===================== */
+.tab-row {
+  display: flex;
+  gap: 7px;
+  margin-bottom: 14px;
+  overflow-x: auto;
+  padding-bottom: 3px;
+  scrollbar-width: none;
+}
+.tab-row::-webkit-scrollbar { display: none; }
+.tab-btn {
+  flex-shrink: 0;
+  background: var(--charcoal);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+  padding: 7px 16px;
+  font-family: 'Jost', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.18s;
+}
+.tab-btn.active {
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+  border-color: var(--gold);
+  color: var(--black);
+}
+
+/* ===================== EXERCISE CARDS ===================== */
+.exercise-card {
+  background: var(--charcoal);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: var(--radius);
+  margin-bottom: 9px;
+  overflow: hidden;
+}
+.exercise-header {
+  padding: 13px 14px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  cursor: pointer;
+}
+.exercise-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 19px;
+  font-weight: 300;
+  color: var(--gold);
+  min-width: 22px;
+  line-height: 1;
+  margin-top: 1px;
+}
+.exercise-info { flex: 1; }
+.exercise-name { font-size: 13px; font-weight: 500; color: var(--white); letter-spacing: 0.03em; margin-bottom: 2px; }
+.exercise-meta { font-size: 12px; color: var(--gold); font-weight: 500; letter-spacing: 0.04em; }
+.exercise-chevron { color: var(--muted); font-size: 11px; transition: transform 0.18s; margin-top: 3px; flex-shrink: 0; }
+.exercise-card.open .exercise-chevron { transform: rotate(180deg); }
+.exercise-body { display: none; padding: 0 14px 14px; border-top: 1px solid rgba(255,255,255,0.06); }
+.exercise-card.open .exercise-body { display: block; }
+
+.cue-box { background: var(--dark); border-radius: var(--radius-sm); padding: 11px; margin-top: 11px; margin-bottom: 11px; }
+.cue-box h5 { font-size: 8px; font-weight: 500; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 7px; }
+.cue-box ul { padding-left: 13px; }
+.cue-box li { font-size: 12px; color: var(--muted); line-height: 1.6; font-weight: 300; margin-bottom: 2px; }
+
+.log-section { margin-top: 10px; }
+.log-section h5 { font-size: 8px; font-weight: 500; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 9px; }
+
+.log-col-headers { display: grid; grid-template-columns: 38px 1fr 1fr 1fr; gap: 5px; margin-bottom: 4px; }
+.log-col-headers span { font-size: 8px; color: var(--muted); text-align: center; letter-spacing: 0.1em; text-transform: uppercase; }
+
+.set-row { display: grid; grid-template-columns: 38px 1fr 1fr 1fr; gap: 5px; align-items: center; margin-bottom: 5px; }
+.set-label { font-size: 10px; color: var(--muted); font-weight: 400; }
+
+.log-input {
+  background: var(--dark);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 6px;
+  padding: 8px 5px;
+  font-family: 'Jost', sans-serif;
+  font-size: 12px;
+  color: var(--white);
+  text-align: center;
+  width: 100%;
+  -webkit-appearance: none;
+}
+.log-input:focus { outline: none; border-color: var(--gold); }
+.log-input::placeholder { color: var(--muted); font-size: 10px; }
+
+.add-set-btn {
+  background: none;
+  border: 1px dashed rgba(201,168,76,0.28);
+  border-radius: 6px;
+  color: var(--gold);
+  font-family: 'Jost', sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  padding: 8px;
+  width: 100%;
+  cursor: pointer;
+  margin-top: 5px;
+  transition: all 0.18s;
+}
+.add-set-btn:active { background: rgba(201,168,76,0.07); }
+
+.notes-input {
+  background: var(--dark);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 6px;
+  padding: 9px;
+  font-family: 'Jost', sans-serif;
+  font-size: 12px;
+  color: var(--white);
+  width: 100%;
+  resize: none;
+  min-height: 56px;
+  margin-top: 9px;
+  font-weight: 300;
+}
+.notes-input:focus { outline: none; border-color: var(--gold); }
+.notes-input::placeholder { color: var(--muted); }
+
+/* ===================== SESSION HEADER ===================== */
+.session-header-card {
+  background: linear-gradient(135deg, var(--charcoal), rgba(201,168,76,0.05));
+  border: 1px solid rgba(201,168,76,0.18);
+  border-radius: var(--radius);
+  padding: 14px;
+  margin-bottom: 14px;
+}
+.session-header-card h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px;
+  font-weight: 300;
+  margin-bottom: 11px;
+  color: var(--white);
+}
+.session-meta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
+.meta-field label { font-size: 8px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 4px; }
+
+.rpe-row { display: flex; gap: 3px; margin-top: 4px; flex-wrap: wrap; }
+.rpe-btn {
+  flex: 1;
+  min-width: 26px;
+  background: var(--dark);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 6px;
+  padding: 7px 2px;
+  font-family: 'Jost', sans-serif;
+  font-size: 11px;
+  color: var(--muted);
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.18s;
+}
+.rpe-btn.selected-rpe { background: linear-gradient(135deg, var(--gold-dark), var(--gold)); color: var(--black); border-color: var(--gold); font-weight: 500; }
+
+.traffic-row { display: flex; gap: 5px; margin-top: 4px; }
+.traffic-btn { flex: 1; border-radius: 6px; padding: 9px 3px; font-size: 9px; font-family: 'Jost', sans-serif; font-weight: 500; letter-spacing: 0.07em; cursor: pointer; text-align: center; border: 2px solid transparent; transition: all 0.18s; opacity: 0.5; }
+.traffic-btn.green-btn { background: rgba(39,174,96,0.12); color: var(--green); border-color: rgba(39,174,96,0.28); }
+.traffic-btn.yellow-btn { background: rgba(243,156,18,0.12); color: var(--yellow); border-color: rgba(243,156,18,0.28); }
+.traffic-btn.red-btn { background: rgba(192,57,43,0.12); color: var(--red); border-color: rgba(192,57,43,0.28); }
+.traffic-btn.selected { opacity: 1; }
+
+/* ===================== BUTTONS ===================== */
+.export-btn {
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold-light));
+  border: none;
+  border-radius: var(--radius);
+  padding: 15px 20px;
+  font-family: 'Jost', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--black);
+  width: 100%;
+  cursor: pointer;
+  margin-top: 14px;
+  transition: all 0.18s;
+}
+.export-btn:active { opacity: 0.83; transform: scale(0.98); }
+.save-btn {
+  background: var(--charcoal);
+  border: 1px solid var(--gold);
+  border-radius: var(--radius);
+  padding: 13px 20px;
+  font-family: 'Jost', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  width: 100%;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: all 0.18s;
+}
+.save-btn:active { opacity: 0.8; }
+
+/* ===================== SCHEDULE ===================== */
+.week-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  padding: 0 2px;
+}
+.week-nav-btn {
+  background: var(--charcoal);
+  border: 1px solid rgba(201,168,76,0.2);
+  border-radius: 8px;
+  color: var(--gold);
+  font-size: 16px;
+  padding: 8px 14px;
+  cursor: pointer;
+}
+.week-nav-btn:disabled { opacity: 0.3; }
+.week-label-main {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 300;
+  color: var(--white);
+}
+
+.schedule-grid { display: flex; flex-direction: column; gap: 7px; }
+
+.schedule-day {
+  background: var(--charcoal);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: var(--radius);
+  padding: 13px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: grab;
+  transition: all 0.18s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+}
+.schedule-day.rest-day { opacity: 0.45; border-style: dashed; border-color: rgba(255,255,255,0.1); }
+.schedule-day.dragging { opacity: 0.4; transform: scale(0.97); }
+.schedule-day.drag-over { border-color: var(--gold); background: rgba(201,168,76,0.08); }
+.schedule-day.training-day { border-left: 3px solid var(--gold); }
+
+.sched-day-name {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  min-width: 32px;
+}
+.sched-content { flex: 1; }
+.sched-title { font-size: 13px; font-weight: 500; color: var(--white); margin-bottom: 2px; }
+.sched-sub { font-size: 10px; color: var(--gold); font-weight: 300; }
+.sched-pill { font-size: 8px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 2px 8px; border-radius: 10px; flex-shrink: 0; }
+.sched-pill.strength { background: rgba(192,57,43,0.15); color: #E74C3C; }
+.sched-pill.endurance { background: rgba(39,174,96,0.15); color: var(--green); }
+.sched-pill.functional { background: rgba(52,152,219,0.15); color: #3498DB; }
+.sched-pill.rest { background: rgba(107,107,107,0.15); color: var(--muted); }
+.drag-handle { color: rgba(201,168,76,0.35); font-size: 14px; flex-shrink: 0; }
+
+.drag-hint {
+  font-size: 10px;
+  color: var(--muted);
+  text-align: center;
+  margin-bottom: 12px;
+  letter-spacing: 0.08em;
+  font-weight: 300;
+}
+
+.rotation-card { background: var(--charcoal); border: 1px solid rgba(201,168,76,0.18); border-radius: var(--radius); padding: 14px; margin-bottom: 7px; }
+.rotation-card h4 { font-size: 10px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+.rotation-day-row { margin-bottom: 6px; }
+.rotation-day-label { font-size: 10px; font-weight: 500; color: var(--white); margin-bottom: 2px; }
+.rotation-day-desc { font-size: 11px; color: var(--muted); font-weight: 300; line-height: 1.5; }
+
+/* ===================== GOALS ===================== */
+.goal-item { display: flex; gap: 13px; padding: 13px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+.goal-item:last-child { border-bottom: none; }
+.goal-number { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 300; color: var(--gold); line-height: 1; min-width: 30px; margin-top: 1px; }
+.goal-text h4 { font-size: 13px; font-weight: 500; letter-spacing: 0.05em; margin-bottom: 4px; color: var(--white); }
+.goal-text p { font-size: 12px; color: var(--muted); line-height: 1.6; font-weight: 300; }
+
+/* ===================== PRECAUTIONS ===================== */
+.precaution-card { background: var(--charcoal); border-radius: var(--radius); padding: 13px 14px; margin-bottom: 7px; border-left: 3px solid var(--red); }
+.precaution-card.yellow { border-left-color: var(--yellow); }
+.precaution-card.green { border-left-color: var(--green); }
+.precaution-card h4 { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 7px; color: #E74C3C; }
+.precaution-card.yellow h4 { color: var(--yellow); }
+.precaution-card.green h4 { color: var(--green); }
+.precaution-card p, .precaution-card li { font-size: 12px; color: var(--muted); line-height: 1.6; font-weight: 300; }
+.precaution-card ul { padding-left: 13px; }
+
+/* ===================== BANK ===================== */
+.muscle-group { margin-bottom: 6px; border-radius: var(--radius); overflow: hidden; border: 1px solid rgba(255,255,255,0.06); }
+.muscle-group-header { background: var(--charcoal); padding: 13px 14px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
+.muscle-group-header h3 { font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--white); }
+.muscle-group-body { display: none; background: var(--dark); }
+.muscle-group.open .muscle-group-body { display: block; }
+.bank-exercise { padding: 11px 14px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+.bank-exercise:last-child { border-bottom: none; }
+.bank-exercise h4 { font-size: 13px; font-weight: 400; color: var(--white); margin-bottom: 2px; }
+.bank-exercise p { font-size: 11px; color: var(--muted); line-height: 1.5; font-weight: 300; }
+.bank-tag { display: inline-block; background: rgba(201,168,76,0.10); border: 1px solid rgba(201,168,76,0.18); border-radius: 4px; padding: 2px 6px; font-size: 8px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-right: 3px; margin-bottom: 3px; margin-top: 4px; }
+
+/* ===================== REHAB ===================== */
+.rehab-intro-card {
+  background: linear-gradient(135deg, var(--charcoal), rgba(201,168,76,0.04));
+  border: 1px solid rgba(201,168,76,0.18);
+  border-radius: var(--radius);
+  padding: 14px;
+  margin-bottom: 18px;
+}
+.rehab-intro-card p { font-size: 12px; color: var(--muted); line-height: 1.7; font-weight: 300; }
+
+.rehab-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  margin-top: 22px;
+}
+.rehab-section-header:first-of-type { margin-top: 0; }
+.rehab-section-title { font-size: 9px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); }
+.rehab-progress-text { font-size: 10px; color: var(--muted); font-weight: 300; }
+
+.rehab-item {
+  background: var(--charcoal);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: var(--radius);
+  margin-bottom: 7px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+.rehab-item.completed-item { border-color: rgba(39,174,96,0.3); }
+
+.rehab-row {
+  display: flex;
+  align-items: center;
+  padding: 12px 13px;
+  gap: 11px;
+  cursor: pointer;
+}
+.rehab-check-circle {
+  width: 26px;
+  height: 26px;
+  border: 2px solid rgba(201,168,76,0.35);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.18s;
+  font-size: 13px;
+  cursor: pointer;
+}
+.rehab-check-circle.done {
+  background: var(--green);
+  border-color: var(--green);
+  color: var(--white);
+}
+.rehab-check-circle.done::after { content: '✓'; font-size: 13px; font-weight: 600; color: var(--white); }
+
+.rehab-main { flex: 1; }
+.rehab-name { font-size: 13px; font-weight: 400; color: var(--white); margin-bottom: 2px; }
+.rehab-rx { font-size: 11px; font-weight: 500; color: var(--gold); }
+.rehab-chevron { color: var(--muted); font-size: 11px; transition: transform 0.18s; flex-shrink: 0; }
+.rehab-item.open .rehab-chevron { transform: rotate(180deg); }
+
+.rehab-detail {
+  display: none;
+  padding: 0 13px 13px 50px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+.rehab-item.open .rehab-detail { display: block; }
+.rehab-cue-text { font-size: 12px; color: var(--muted); line-height: 1.6; font-weight: 300; margin-top: 10px; }
+.rehab-note-input {
+  background: var(--dark);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 6px;
+  padding: 8px;
+  font-family: 'Jost', sans-serif;
+  font-size: 12px;
+  color: var(--white);
+  width: 100%;
+  resize: none;
+  min-height: 48px;
+  margin-top: 9px;
+  font-weight: 300;
+}
+.rehab-note-input:focus { outline: none; border-color: var(--gold); }
+.rehab-note-input::placeholder { color: var(--muted); }
+
+.reset-confirm-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  display: flex;
+  align-items: flex-end;
+  z-index: 300;
+  padding: 20px;
+}
+.reset-confirm-box {
+  background: var(--charcoal);
+  border: 1px solid var(--gold);
+  border-radius: var(--radius);
+  padding: 22px;
+  width: 100%;
+}
+.reset-confirm-box h3 { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 300; color: var(--white); margin-bottom: 10px; }
+.reset-confirm-box p { font-size: 12px; color: var(--muted); margin-bottom: 18px; font-weight: 300; line-height: 1.5; }
+.reset-btn-row { display: flex; gap: 10px; }
+.reset-confirm-btn { flex: 1; background: var(--green); border: none; border-radius: 8px; padding: 13px; font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--white); cursor: pointer; }
+.reset-cancel-btn { flex: 1; background: var(--charcoal); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; padding: 13px; font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); cursor: pointer; }
+
+/* ===================== HISTORY ===================== */
+.history-card { background: var(--charcoal); border: 1px solid rgba(255,255,255,0.06); border-radius: var(--radius); padding: 13px 14px; margin-bottom: 7px; }
+.history-date { font-size: 9px; color: var(--gold); letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 4px; }
+.history-title { font-size: 14px; font-weight: 400; color: var(--white); margin-bottom: 6px; }
+.history-tags { display: flex; gap: 5px; flex-wrap: wrap; }
+.history-tag { font-size: 10px; color: var(--muted); background: var(--dark); border-radius: 4px; padding: 2px 7px; }
+
+/* ===================== BOTTOM NAV ===================== */
+.bottom-nav {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  background: rgba(17,17,17,0.96);
+  backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(201,168,76,0.13);
+  display: flex;
+  z-index: 100;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.bottom-nav-btn { flex: 1; background: none; border: none; padding: 11px 4px 9px; cursor: pointer; text-align: center; }
+.bottom-nav-btn .nav-ico { font-size: 19px; display: block; margin-bottom: 3px; }
+.bottom-nav-btn .nav-lbl { font-size: 8px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); display: block; }
+.bottom-nav-btn.active .nav-lbl { color: var(--gold); }
+
+/* ===================== TOAST ===================== */
+.toast {
+  position: fixed;
+  bottom: 78px; left: 14px; right: 14px;
+  background: var(--charcoal);
+  border: 1px solid var(--gold);
+  border-radius: var(--radius);
+  padding: 13px 14px;
+  font-size: 12px;
+  color: var(--white);
+  z-index: 200;
+  transform: translateY(16px);
+  opacity: 0;
+  transition: all 0.28s ease;
+  pointer-events: none;
+}
+.toast.show { transform: translateY(0); opacity: 1; }
+.pill { display: inline-block; background: rgba(201,168,76,0.10); border: 1px solid rgba(201,168,76,0.22); border-radius: 12px; padding: 2px 9px; font-size: 9px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); }
+.pill.strength { background: rgba(192,57,43,0.09); border-color: rgba(192,57,43,0.22); color: #E74C3C; }
+.pill.endurance { background: rgba(39,174,96,0.09); border-color: rgba(39,174,96,0.22); color: var(--green); }
+.pill.functional { background: rgba(52,152,219,0.09); border-color: rgba(52,152,219,0.22); color: #3498DB; }
+.empty-state { text-align: center; padding: 44px 20px; color: var(--muted); }
+.empty-state p { font-size: 13px; font-weight: 300; line-height: 1.6; }
+</style>
+</head>
+<body>
+
+<!-- ==================== SPLASH ==================== -->
+<div id="splash">
+  <div class="header-block">
+    <p class="provider-line">Kelly Davis, PT, DPT, ATC, COMT, CSCS</p>
+    <div class="oc-header">
+      <img src="data:image/png;base64,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2u5rH5f9Xbv91uCJnDPfv5JcslNbqS2Qx2mnhgo3N7yNkTeFuHc8geucqKt7e4OvNNCq7swEAS8fyeAyt4s+mMqUtO3K3Xa0Q1lpeH0ZyyMhhaBwnhxg+WFFW+FPFV6/01SztD4p2tje0n5TTKAR9hV/iurcF+XWt1+XeP0Y8LE+26/H7KXdGn0dTChbpZ9ILq6cBrKGTi/VPI4DuLGMc1NFB33sMHtP57u295+tjn96hjUGnv7HWtaHUFupo5rO5+O7eMmLI95oJ6HHNp+IUz2+rp6+ihraSVssEzA+N7TyIKjwyNZsvNEVt06R216/U4md0pqdx6/sifcWafU251v0h3z46OItMgB5cRYXudjxIbyHlkrL6zROiIKEUk9HS0xLfdldNwy/HiJyf3LEdz6C4ac19Ra6o6V9RStLPaOEfJIaWEO8gWnkTyyvLcHUehNV2VtVKal1yp4Xika+NzeBzsdfmkZaPFal74sVs1s0RN99Obzr5a/vutitrRTkmdfD1Slpyht9ts8FHa3MfTRjDXNcHcRzzOR45Ua9okN7mzOeAWiSQnPlhqyzZ+Pu9A0IDS0EyEZGMgvPNYr2hiwRWYvI4e8kznx5NW1x14v4bza1uI6enZVgrridd+srlY5tq7jVUtJRUdslq5SBG0UxyXYz4j0UjAYGAoztWqdsaaop5aOip4alpHBJHQFpDunIgKTAQQCPFbXh9q2rOprM/wC391fERMTG4n6vqIi6DXEREBERAREQEREBERAREQEREBERBT11HSV0Pc1lNDUR9eGRgcPvXjbrRa7c4uoLfS0zj1McQaT9arkWM0rM80x1TudaF41dLTVkJhqqeKeI9WSMDh9hXsimYiY1KFBQWa00EneUVtpKd/0o4gD9qr0RRWtaxqsaTMzPdTV1BQ14YK2kgqRGeJgljDuE+YyqgchgL6inUb2jalprfQ0tVNVU1HBDPOcyyMjAc/4kdVVIiRER2N7UVytVsuYaLhQU1Vw/J72MOx8Mr9W222+2xmO30VPSscckRRhufjhVaKOSvNza6p5p1p8IBBBGQVTW+3UFvY5lBR09K15y4RRhuT64VUinUTO0bedRDFUQPgniZLE8Ycx7chw8iFRfiKyf/qKD/wBu3+pXFFFqVt3hMTMdnjSU1PSQCClgjgiBJDI2hrRk5PILzqrfQ1VRFUVNHTzTRfm3yRhzmc88ienNVSKeWNa0bl5VVNT1UJhqYI54yclkjQ4fYUpaeClgbBTQxwxN+SxjQ1o8eQC9UTUb2jb8va17S1zQ5pGCCMgq2N05YG1HtAs1AJc54u4bnP2K6ootStu8bTEzHZ8AAAAAAHQBU1fb6CvDRW0dPUhnye9jDsfDKqkUzETGpRvS2tsFjaQW2egBHMYp2/1K4r6iitK17RpMzM9xERZIEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREH//2Q==" alt="OrthoCare Concierge" style="width:180px;height:auto;" />
+    </div>
+  </div>
+
+  <div class="gold-line"></div>
+
+  <div class="client-hero">
+    <h1>Holly<br>Harlow</h1>
+    <p class="subtitle">Performance Program</p>
+  </div>
+
+  <div class="nav-grid">
+    <div class="nav-card" onclick="showPage('today')">
+      <span class="nav-icon">🏋️</span>
+      <h3>Today's Session</h3>
+      <p>Log your workout</p>
+    </div>
+    <div class="nav-card" onclick="showPage('schedule')">
+      <span class="nav-icon">📅</span>
+      <h3>Schedule</h3>
+      <p>6 week plan</p>
+    </div>
+    <div class="nav-card" onclick="showPage('bank')">
+      <span class="nav-icon">📖</span>
+      <h3>Exercise Bank</h3>
+      <p>Full library</p>
+    </div>
+    <div class="nav-card" onclick="showPage('rehab')">
+      <span class="nav-icon">🔄</span>
+      <h3>Daily Protocol</h3>
+      <p>UE and LE rehab</p>
+    </div>
+    <div class="nav-card" onclick="showPage('goals')">
+      <span class="nav-icon">🎯</span>
+      <h3>Goals</h3>
+      <p>Your why</p>
+    </div>
+    <div class="nav-card" onclick="showPage('precautions')">
+      <span class="nav-icon">⚠️</span>
+      <h3>Precautions</h3>
+      <p>Know your limits</p>
+    </div>
+    <div class="nav-card full-width" onclick="showPage('history')">
+      <span class="nav-icon">📊</span>
+      <h3>Session History</h3>
+      <p>Review past workouts and progress</p>
+    </div>
+  </div>
+
+  <p class="proprietary-line">
+    &copy; OrthoCare Concierge LLC | Kelly Davis<br>
+    PROPRIETARY AND CONFIDENTIAL. This program is the intellectual property of OrthoCare Concierge LLC and Kelly Davis. It is not to be copied, shared, or reproduced without written permission.
+  </p>
+</div>
+
+<!-- ==================== TODAY'S SESSION ==================== -->
+<div id="page-today" class="page">
+  <div class="page-header">
+    <button class="back-btn" onclick="showHome()">&#8592; Home</button>
+    <h2>Today's Session</h2>
+    <p class="page-sub">Select your workout block</p>
+  </div>
+  <div class="page-content">
+    <div class="tab-row">
+      <button class="tab-btn active" onclick="selectWorkout('upper-pull',this)">Upper Pull</button>
+      <button class="tab-btn" onclick="selectWorkout('upper-push',this)">Upper Push</button>
+      <button class="tab-btn" onclick="selectWorkout('lower-strength',this)">Lower Strength</button>
+      <button class="tab-btn" onclick="selectWorkout('lower-endurance',this)">Lower Endurance</button>
+      <button class="tab-btn" onclick="selectWorkout('core',this)">Core</button>
+    </div>
+    <div class="tab-row" id="day-tab-row">
+      <button class="tab-btn active" id="day-a-btn" onclick="selectDay('A')">Day A</button>
+      <button class="tab-btn" id="day-b-btn" onclick="selectDay('B')">Day B</button>
+      <button class="tab-btn" id="day-c-btn" onclick="selectDay('C')">Day C</button>
+    </div>
+    <div id="workout-display"></div>
+    <button class="export-btn" onclick="exportLog()">&#128228; Export Session Summary</button>
+    <button class="save-btn" onclick="saveSession()">&#128190; Save Session</button>
+  </div>
+</div>
+
+<!-- ==================== SCHEDULE ==================== -->
+<div id="page-schedule" class="page">
+  <div class="page-header">
+    <button class="back-btn" onclick="showHome()">&#8592; Home</button>
+    <h2>6 Week Schedule</h2>
+    <p class="page-sub">Tap and hold a day to swap</p>
+  </div>
+  <div class="page-content">
+    <div class="week-nav">
+      <button class="week-nav-btn" id="prev-week-btn" onclick="changeWeek(-1)" disabled>&#8592;</button>
+      <span class="week-label-main" id="week-label-main">Week 1</span>
+      <button class="week-nav-btn" id="next-week-btn" onclick="changeWeek(1)">&#8594;</button>
+    </div>
+    <p class="drag-hint">Hold and drag any two days to swap them</p>
+    <div class="schedule-grid" id="schedule-grid"></div>
+
+    <div class="divider"></div>
+    <div class="section-label">Day Type Focus</div>
+
+    <div class="rotation-card">
+      <h4>Upper Pull</h4>
+      <div class="rotation-day-row">
+        <div class="rotation-day-label">Day A</div>
+        <div class="rotation-day-desc">Strength focus. Seated cable row, lat pulldown, TRX row, face pull, ER work. 3 to 4 sets of 8 to 12 reps. 60 to 90 second rest.</div>
+      </div>
+      <div class="rotation-day-row" style="margin-top:8px;">
+        <div class="rotation-day-label">Day B</div>
+        <div class="rotation-day-desc">Endurance focus. Higher rep, lighter load. Band pull-apart, sidelying ER, Y-T-W, hammer curl. 3 sets of 15 to 20 reps. 30 to 45 second rest.</div>
+      </div>
+      <div class="rotation-day-row" style="margin-top:8px;">
+        <div class="rotation-day-label">Day C</div>
+        <div class="rotation-day-desc">Functional and serratus focus. LT wall liftoff, serratus punch, wall clocks, wall slide with band. Motor pattern and scapular control emphasis.</div>
+      </div>
+    </div>
+
+    <div class="rotation-card">
+      <h4>Upper Push</h4>
+      <div class="rotation-day-row">
+        <div class="rotation-day-label">Day A</div>
+        <div class="rotation-day-desc">Scapular plane strength. Cable lateral raise, D2 extension, half-kneeling cable press, tricep work. 3 sets of 8 to 12 reps.</div>
+      </div>
+      <div class="rotation-day-row" style="margin-top:8px;">
+        <div class="rotation-day-label">Day B</div>
+        <div class="rotation-day-desc">Endurance and diagonal patterns. Seated DB press, cable low to high lift, band press, glute bridge with serratus punch. 3 sets of 15 reps.</div>
+      </div>
+      <div class="rotation-day-row" style="margin-top:8px;">
+        <div class="rotation-day-label">Day C</div>
+        <div class="rotation-day-desc">Sling integration. D2 flexion, cable chop, serratus punch standing, wall clocks progression. Functional movement emphasis.</div>
+      </div>
+    </div>
+
+    <div class="rotation-card">
+      <h4>Lower Strength</h4>
+      <div class="rotation-day-row">
+        <div class="rotation-day-label">Day A</div>
+        <div class="rotation-day-desc">Compound strength. Bilateral leg press, hip thrust with band, RDL, single leg press, hamstring curl, hip ABD machine, step up.</div>
+      </div>
+      <div class="rotation-day-row" style="margin-top:8px;">
+        <div class="rotation-day-label">Day B</div>
+        <div class="rotation-day-desc">Posterior chain and hip ER emphasis. Cable pull-through, standing clam, lateral band walk, hip ADD machine, LAQ on leg extension machine.</div>
+      </div>
+      <div class="rotation-day-row" style="margin-top:8px;">
+        <div class="rotation-day-label">Day C</div>
+        <div class="rotation-day-desc">Hip stability and single leg focus. Kickstand SL RDL, TRX squat, wall sit with ball squeeze, standing cable hip ER, step up progression.</div>
+      </div>
+    </div>
+
+    <div class="rotation-card">
+      <h4>Lower Endurance</h4>
+      <div class="rotation-day-row">
+        <div class="rotation-day-label">Day A</div>
+        <div class="rotation-day-desc">Tempo and unilateral work. Goblet squat 4-3-1 tempo, luggage squat, split squat with band, kickstand RDL, TRX lateral lunge. 3 sets of 12 to 20 reps.</div>
+      </div>
+      <div class="rotation-day-row" style="margin-top:8px;">
+        <div class="rotation-day-label">Day B</div>
+        <div class="rotation-day-desc">Functional and hip flexor focus. Reverse lunge from step, cable pull-through, eccentric hip flexor lowering, prone hamstring curl, wall sit. 3 sets of 15 reps.</div>
+      </div>
+      <div class="rotation-day-row" style="margin-top:8px;">
+        <div class="rotation-day-label">Day C</div>
+        <div class="rotation-day-desc">Balance and hip stability. Star excursion, lateral hurdle, TRX SL squat assist, 4 way kicks, standing cable hip ER. Proprioceptive emphasis.</div>
+      </div>
+    </div>
+
+    <div class="rotation-card">
+      <h4>Core and Balance</h4>
+      <div class="rotation-day-row">
+        <div class="rotation-day-label">Day A</div>
+        <div class="rotation-day-desc">Stability and anti-movement. Deadbug, Pallof press, bear crawl hold, plank variations, bird dog, foam roller thoracic extension.</div>
+      </div>
+      <div class="rotation-day-row" style="margin-top:8px;">
+        <div class="rotation-day-label">Day B</div>
+        <div class="rotation-day-desc">Trunk slings. Glute bridge with serratus punch, cable chop and lift, Pallof with rotation, eccentric hip flexion with rotation, thread the needle.</div>
+      </div>
+      <div class="rotation-day-row" style="margin-top:8px;">
+        <div class="rotation-day-label">Day C</div>
+        <div class="rotation-day-desc">Balance and proprioception. SL foam balance with ball circles, BOSU black side up, star excursion, reactive ball toss, tandem walk, open book.</div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+    <div class="section-label">Guiding Principles</div>
+    <div class="card card-gold">
+      <p style="font-size:12px;color:var(--muted);line-height:1.8;font-weight:300;">
+        Schedule a check-in with Kelly every other week to review progress, adjust loads, and progress exercises. Do not self-progress. If a session feels off, reduce load and focus on form. Your body will tell you when something is wrong. Learn to listen to it.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== GOALS ==================== -->
+<div id="page-goals" class="page">
+  <div class="page-header">
+    <button class="back-btn" onclick="showHome()">&#8592; Home</button>
+    <h2>Your Goals</h2>
+    <p class="page-sub">The foundation of your program</p>
+  </div>
+  <div class="page-content">
+    <div class="section-label">Primary Goals</div>
+    <div class="card">
+      <div class="goal-item">
+        <span class="goal-number">01</span>
+        <div class="goal-text">
+          <h4>Longevity and Independence</h4>
+          <p>Train to stay strong, mobile, and fully independent for decades to come. Every session is an investment in your future self.</p>
+        </div>
+      </div>
+      <div class="goal-item">
+        <span class="goal-number">02</span>
+        <div class="goal-text">
+          <h4>Rebuild and Surpass</h4>
+          <p>Your joint replacements gave you your function back. This program is going to take that foundation and build you stronger and more capable than you have been in years.</p>
+        </div>
+      </div>
+      <div class="goal-item">
+        <span class="goal-number">03</span>
+        <div class="goal-text">
+          <h4>Stay Active on Your Terms</h4>
+          <p>Keep doing the things you love. Consistent progress that keeps life fully open.</p>
+        </div>
+      </div>
+      <div class="goal-item">
+        <span class="goal-number">04</span>
+        <div class="goal-text">
+          <h4>Master Your Mechanics</h4>
+          <p>Understand how your body moves and compensates. The goal is not just strength but movement quality that protects your joints long-term.</p>
+        </div>
+      </div>
+      <div class="goal-item">
+        <span class="goal-number">05</span>
+        <div class="goal-text">
+          <h4>Move With Confidence</h4>
+          <p>Get up and down from the floor with ease. Navigate stairs without thinking about it. Move through your day with the confidence that your body will hold you.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-label">Training Philosophy</div>
+    <div class="card">
+      <p style="font-size:12px;color:var(--muted);line-height:1.8;font-weight:300;">
+        This program is built around your specific anatomy and surgical history. All of it informs how we train. None of it holds you back.<br><br>
+        We prioritize posterior chain strength, scapular control, hip stability, and proprioception. We build stability before mobility and motor patterns before load. Every exercise is here for a reason.
+      </p>
+    </div>
+
+    <div class="section-label">What Success Looks Like</div>
+    <div class="card">
+      <div class="goal-item">
+        <span class="goal-number" style="font-size:16px;">&#10003;</span>
+        <div class="goal-text"><p>Stairs navigated with consistent mechanics at any height</p></div>
+      </div>
+      <div class="goal-item">
+        <span class="goal-number" style="font-size:16px;">&#10003;</span>
+        <div class="goal-text"><p>Single leg balance improved and reliable on both sides</p></div>
+      </div>
+      <div class="goal-item">
+        <span class="goal-number" style="font-size:16px;">&#10003;</span>
+        <div class="goal-text"><p>Upper extremity elevation mechanically sound bilaterally</p></div>
+      </div>
+      <div class="goal-item">
+        <span class="goal-number" style="font-size:16px;">&#10003;</span>
+        <div class="goal-text"><p>Glute activation present and reliable in all movement patterns</p></div>
+      </div>
+      <div class="goal-item">
+        <span class="goal-number" style="font-size:16px;">&#10003;</span>
+        <div class="goal-text"><p>Getting up from the floor independently and with ease</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PRECAUTIONS ==================== -->
+<div id="page-precautions" class="page">
+  <div class="page-header">
+    <button class="back-btn" onclick="showHome()">&#8592; Home</button>
+    <h2>Precautions</h2>
+    <p class="page-sub">Know before you train</p>
+  </div>
+  <div class="page-content">
+    <div class="section-label">Stop Immediately If</div>
+    <div class="precaution-card">
+      <h4>Red Flags — Stop and Contact Kelly</h4>
+      <ul>
+        <li>Sharp or sudden pain in either shoulder during pressing or lifting</li>
+        <li>New knee pain or swelling that was not present before the session</li>
+        <li>Loss of balance or near-fall during any exercise</li>
+        <li>Pain greater than 4/10 that does not settle within 10 minutes of stopping</li>
+        <li>Any sensation of shoulder instability or clunking</li>
+      </ul>
+    </div>
+
+    <div class="section-label">Shoulder Precautions</div>
+    <div class="precaution-card yellow">
+      <h4>Right Shoulder (R rTSA — 4 months post-op)</h4>
+      <ul>
+        <li>No heavy anterior load. No chest press, dumbbell bench, or fly variations</li>
+        <li>No wide grip on any exercise</li>
+        <li>All pressing in the scapular plane (30 to 45 degrees forward of frontal plane)</li>
+        <li>Overhead load increases only under Kelly's supervision</li>
+        <li>Watch for upper trap hiking. Cue shoulder blade down and back</li>
+      </ul>
+    </div>
+
+    <div class="section-label">Knee Precautions</div>
+    <div class="precaution-card yellow">
+      <h4>Bilateral Knee OA with Valgus</h4>
+      <ul>
+        <li>Monitor for knee cave (knees falling inward) on all squat and lunge patterns</li>
+        <li>If knee pain increases during loading, reduce load or range of motion</li>
+        <li>Inform Kelly if knee swelling increases after sessions</li>
+      </ul>
+    </div>
+
+    <div class="section-label">Ankle and Foot</div>
+    <div class="precaution-card yellow">
+      <h4>Fused Left Ankle</h4>
+      <ul>
+        <li>No standing calf raise on left leg</li>
+        <li>Rear foot support required for split squat. Use band at rack, not foot on bench</li>
+        <li>Heel elevation under left foot for goblet squat and squat patterns</li>
+        <li>Always wear custom orthotics and supportive shoes for all training</li>
+      </ul>
+    </div>
+
+    <div class="section-label">Compensation Patterns to Avoid</div>
+    <div class="precaution-card green">
+      <h4>Watch For These</h4>
+      <ul>
+        <li>Upper trap hiking during shoulder elevation. Let the shoulder blade move first</li>
+        <li>Toe gripping during balance work. Spread and relax the toes</li>
+        <li>Lumbar extension instead of glute activation during hip thrust. Rib cage down</li>
+        <li>Trunk rotation during bent over rows. The back stays still, only the arm moves</li>
+        <li>Knee valgus collapse during single leg work. Push the knee out over the second toe</li>
+        <li>Spinal flexion instead of hip hinge during RDL. Hinge at the hip, back stays long</li>
+      </ul>
+    </div>
+
+    <div class="section-label">Pain Guidelines</div>
+    <div class="card">
+      <p style="font-size:12px;color:var(--muted);line-height:1.9;font-weight:300;">
+        <span style="color:var(--green);font-weight:500;">0 to 3/10:</span> Acceptable. Continue with attention to form.<br>
+        <span style="color:var(--yellow);font-weight:500;">4 to 5/10:</span> Modify. Reduce load or range of motion.<br>
+        <span style="color:var(--red);font-weight:500;">6+/10:</span> Stop. Rest and contact Kelly.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== EXERCISE BANK ==================== -->
+<div id="page-bank" class="page">
+  <div class="page-header">
+    <button class="back-btn" onclick="showHome()">&#8592; Home</button>
+    <h2>Exercise Bank</h2>
+    <p class="page-sub">Full library by muscle group</p>
+  </div>
+  <div class="page-content" id="bank-content"></div>
+</div>
+
+<!-- ==================== DAILY PROTOCOL ==================== -->
+<div id="page-rehab" class="page">
+  <div class="page-header">
+    <button class="back-btn" onclick="showHome()">&#8592; Home</button>
+    <h2>Daily Protocol</h2>
+    <p class="page-sub">Home rehab program</p>
+  </div>
+  <div class="page-content">
+    <div class="rehab-intro-card">
+      <p>Each day, choose 2 to 3 upper extremity and 2 to 3 lower extremity exercises to complete. Rotate through them so you are hitting all exercises across the week. Check each one off as you complete it. When you finish all exercises in a section, that section resets for the next round.</p>
+    </div>
+
+    <div class="rehab-section-header">
+      <span class="rehab-section-title">Lower Extremity</span>
+      <span class="rehab-progress-text" id="le-progress-text">0 / 7</span>
+    </div>
+    <div id="rehab-le-content"></div>
+
+    <div class="rehab-section-header" style="margin-top:24px;">
+      <span class="rehab-section-title">Upper Extremity</span>
+      <span class="rehab-progress-text" id="ue-progress-text">0 / 10</span>
+    </div>
+    <div id="rehab-ue-content"></div>
+
+    <button class="export-btn" onclick="exportRehab()" style="margin-top:20px;">&#128228; Export Rehab Log</button>
+  </div>
+</div>
+
+<!-- ==================== HISTORY ==================== -->
+<div id="page-history" class="page">
+  <div class="page-header">
+    <button class="back-btn" onclick="showHome()">&#8592; Home</button>
+    <h2>Session History</h2>
+    <p class="page-sub">Your training record</p>
+  </div>
+  <div class="page-content">
+    <div id="history-content">
+      <div class="empty-state"><p>No sessions logged yet.<br>Complete your first workout to see your history here.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== BOTTOM NAV ==================== -->
+<div class="bottom-nav" id="bottom-nav" style="display:none;">
+  <button class="bottom-nav-btn" onclick="showPage('today')">
+    <span class="nav-ico">🏋️</span><span class="nav-lbl">Train</span>
+  </button>
+  <button class="bottom-nav-btn" onclick="showPage('schedule')">
+    <span class="nav-ico">📅</span><span class="nav-lbl">Schedule</span>
+  </button>
+  <button class="bottom-nav-btn" onclick="showPage('rehab')">
+    <span class="nav-ico">🔄</span><span class="nav-lbl">Rehab</span>
+  </button>
+  <button class="bottom-nav-btn" onclick="showPage('history')">
+    <span class="nav-ico">📊</span><span class="nav-lbl">History</span>
+  </button>
+  <button class="bottom-nav-btn" onclick="showHome()">
+    <span class="nav-ico">🏠</span><span class="nav-lbl">Home</span>
+  </button>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<!-- Reset Confirm Overlay -->
+<div class="reset-confirm-overlay" id="reset-overlay" style="display:none;">
+  <div class="reset-confirm-box">
+    <h3 id="reset-overlay-title">All done!</h3>
+    <p id="reset-overlay-text">You have completed all exercises in this section. Reset it for the next round?</p>
+    <div class="reset-btn-row">
+      <button class="reset-cancel-btn" onclick="cancelReset()">Not Yet</button>
+      <button class="reset-confirm-btn" onclick="confirmReset()">Reset</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// =====================================================================
+// DATA
+// =====================================================================
+
+const workouts = {
+  'upper-pull': {
+    label: 'Upper Pull',
+    days: {
+      A: {
+        label: 'Day A — Strength',
+        pill: 'strength',
+        meta: '3 to 4 sets | 8 to 12 reps | 60 to 90 sec rest',
+        exercises: [
+          { name: 'Seated Cable Row, Neutral Grip', meta: '3 sets x 8 to 10 reps', cues: ['Initiate with scapular retraction before pulling the arm', 'Elbows track straight back, not flared', 'Keep chest up, avoid rounding at end range', 'Squeeze shoulder blades together and down at end range'] },
+          { name: 'Lat Pulldown, Neutral Close Grip', meta: '3 sets x 8 to 10 reps', cues: ['Grip just inside shoulder width, palms facing each other', 'Lean back 10 to 15 degrees, pull bar to upper chest', 'Think elbows to back pockets', 'Control the return fully'] },
+          { name: 'TRX Row', meta: '3 sets x 10 reps | adjust angle for load', cues: ['Body in a straight line from heels to ears', 'Pull chest to handles, squeeze shoulder blades together', 'Do not let hips sag or pike', 'Progress by walking feet forward to increase difficulty'] },
+          { name: 'Cable ER at 90 Deg Abduction, Scapular Plane', meta: '3 sets x 12 reps each side', cues: ['Arm at 90 degrees abduction, elbow bent 90 degrees', 'Rotate forearm toward ceiling against cable resistance', 'Scapular plane means arm slightly forward of frontal plane', 'No compensation through trunk or shoulder hike'] },
+          { name: 'Face Pull with Rope', meta: '3 sets x 8 to 10 reps', cues: ['Cable at eye level, step back for tension', 'Pull rope to forehead, elbows high and wide', 'Finish in external rotation, thumbs behind ears', 'Control the return slowly'] },
+          { name: 'Cable Supinated Curl', meta: '3 sets x 12 reps', cues: ['Palms face up throughout', 'Upper arm stays fixed at side, no swinging', 'Full range, full extension at bottom', 'Squeeze at the top'] },
+          { name: 'Single Arm Cable Pulldown, Half-Kneeling', meta: '3 sets x 10 reps each side', cues: ['Down knee on pad, opposite foot forward', 'Cable anchored high, pull down and across to hip', 'Feel the lat engage, not the bicep leading', 'Maintain upright trunk throughout'] },
+        ]
+      },
+      B: {
+        label: 'Day B — Endurance',
+        pill: 'endurance',
+        meta: '3 sets | 15 to 20 reps | 30 to 45 sec rest',
+        exercises: [
+          { name: 'Half-Kneeling Single Arm Cable Row', meta: '3 sets x 15 reps each side', cues: ['Half-kneeling position adds hip stability demand', 'Row to lower ribcage, not armpit', 'Resist rotation through the trunk, stay square', 'Think opposite glute engaging for the sling pattern'] },
+          { name: 'Band Pull-Apart, Palms Up', meta: '3 sets x 20 reps', cues: ['Start with band at chest height, arms extended', 'Pull apart to full shoulder width, elbows soft', 'Suppress upper trap, shoulder blades down', 'Progress to overhead arc or diagonal variation'] },
+          { name: 'Sidelying ER with Dumbbell', meta: '3 sets x 15 reps each side | 3 lbs', cues: ['Lie on side, elbow bent 90 degrees, small towel roll under arm', 'Rotate forearm toward ceiling, do not let shoulder roll back', 'Slow and controlled, 3 seconds up and 3 seconds down', 'Light weight is correct here, this is rotator cuff endurance work'] },
+          { name: 'Field Goal ER with Band at Wrists', meta: '3 sets x 15 reps', cues: ['Elbows at 90 degrees, upper arms at shoulder height', 'Band at wrists, rotate forearms up against band resistance', 'Keep elbows fixed, they are the pivot point', 'Full rotation to vertical forearms'] },
+          { name: 'Y-T-W on Incline Bench', meta: '3 sets x 12 reps each position | 1 to 2 lbs', cues: ['Y: arms overhead in Y shape, lower trap driver', 'T: arms out to sides at shoulder height, mid trap', 'W: elbows bent, rotate to W position, posterior cuff', 'Thumbs up in all positions, no upper trap involvement'] },
+          { name: 'Hammer Curl', meta: '3 sets x 15 reps', cues: ['Neutral grip, palms face each other throughout', 'Trains brachialis, important for functional carry strength', 'Alternate arms or bilateral depending on shoulder fatigue', 'No swinging, strict movement'] },
+          { name: 'Straight Arm Lat Pulldown', meta: '3 sets x 15 reps', cues: ['Arms extended, slight bend in elbow', 'Pull bar from overhead to thighs using lats only', 'Isolates the lat without elbow flexor involvement', 'Feel the lat, not the arm'] },
+        ]
+      },
+      C: {
+        label: 'Day C — Functional and Serratus',
+        pill: 'functional',
+        meta: '3 sets | 10 to 15 reps | 45 sec rest',
+        exercises: [
+          { name: 'LT Wall Liftoff in Y Position', meta: '3 sets x 10 reps', cues: ['Face wall, arms fully extended overhead in Y shape', 'Reach long first, then lift hands off wall', 'Do not initiate with rhomboids by squeezing first', 'Small movement with big activation'] },
+          { name: 'Serratus Punch on Cable, Half-Kneeling', meta: '3 sets x 12 reps each side', cues: ['Cable at chest height, half-kneeling facing away', 'Punch forward and fully protract at end range', 'The protraction at the end is the serratus activation', 'Add trunk rotation when mechanics are consistent'] },
+          { name: 'High Plank Serratus Push-Away', meta: '3 sets x 12 reps', cues: ['High plank position, hands under shoulders', 'Push the floor away and let shoulder blades spread apart', 'This is not a push-up, just the protraction movement at the top', 'Hold the end position 2 seconds each rep'] },
+          { name: 'Wall Slide with Band at Elbows', meta: '3 sets x 12 reps', cues: ['Forearms on wall, band above elbows to activate deltoid', 'Slide arms up the wall maintaining contact', 'Scapula rotates upward, feel the lower trap engage', 'Progress to band at wrists to enforce external rotation'] },
+          { name: 'Prone I Extensions on Bench', meta: '3 sets x 15 reps | 1 to 2 lbs', cues: ['Prone on incline bench, arms extended overhead in I position', 'Lift arms toward ceiling, lower trap and thoracic extension', 'Thumbs up, control the descent', 'Foundation for adding T and W positions'] },
+          { name: 'Wall Clocks for Shoulder Stability', meta: '3 sets x 8 reps each direction', cues: ['Palms flat on wall, elbows straight, fingers pointing upward always', 'Tap 1, 3, and 5 o clock returning to center each time', 'Repeat with other hand to 11, 9, and 7 o clock', 'Stabilizing shoulder maintains scapular position throughout'] },
+          { name: 'Serratus Wall Press with Ball', meta: '3 sets x 10 reps', cues: ['Ball between forearm and wall', 'Press through the ball and fully protract at end range', 'Hold 3 seconds at end range', 'Instability of the ball increases the demand'] },
+        ]
+      }
+    }
+  },
+  'upper-push': {
+    label: 'Upper Push',
+    days: {
+      A: {
+        label: 'Day A — Scapular Plane Strength',
+        pill: 'strength',
+        meta: '3 sets | 8 to 12 reps | 60 to 90 sec rest',
+        exercises: [
+          { name: 'Cable Lateral Raise, Scapular Plane', meta: '3 sets x 10 reps | 5 to 8 lbs', cues: ['Cable at low anchor, stand sideways', 'Lift in the scapular plane, 30 degrees forward of frontal', 'Stop at shoulder height until scapular control is consistent', 'Slow descent, 3 seconds down'] },
+          { name: 'Cable D2 Extension', meta: '3 sets x 12 reps each side', cues: ['Start with arm overhead and across, cable high on opposite side', 'Pull diagonally down and across body into extension', 'This is your first diagonal loading pattern, controlled and deliberate', 'Progress to D2 Flexion when this feels confident'] },
+          { name: 'Half-Kneeling Cable Press, Neutral Grip', meta: '3 sets x 10 reps', cues: ['Cable anchored at chest height, half-kneeling position', 'Press forward and slightly up at 30 to 45 degrees elevation', 'Think push the wall forward and up, not a chest press', 'Scapula must be set before pressing, do not let it wing'] },
+          { name: 'Cable Tricep Pushdown, Rope', meta: '3 sets x 12 reps', cues: ['Elbows fixed at sides, they are the pivot point', 'Push rope down and slightly out at bottom', 'Full extension at bottom, controlled return', 'No shoulder movement, tricep only'] },
+          { name: 'Skull Crusher, Supine Unilateral', meta: '3 sets x 10 reps each arm', cues: ['Supine on bench, stabilizing shoulder packed and neutral', 'Lower DB toward temple with control, 3 seconds down', 'Do not let the stabilizing shoulder drift into internal rotation', 'Extension phase is controlled, not explosive'] },
+          { name: 'Push-Up Plus, Wall Variation', meta: '3 sets x 12 reps', cues: ['Hands on wall at chest height, body in plank line', 'Press into wall and then fully protract at end range', 'The plus is the protraction, this is the serratus component', 'Progress to incline then floor when shoulder is ready'] },
+        ]
+      },
+      B: {
+        label: 'Day B — Endurance and Diagonals',
+        pill: 'endurance',
+        meta: '3 sets | 15 reps | 30 to 45 sec rest',
+        exercises: [
+          { name: 'Seated DB Press, Scapular Plane', meta: '3 sets x 15 reps | 3 to 5 lbs', cues: ['Sit upright, press in scapular plane, not straight up or straight out', 'Scapula must move correctly, watch for upper trap hike on right side', 'Start very light, motor pattern first and load second', 'Do not compare right to left load, they are different shoulders'] },
+          { name: 'Cable Low to High Lift', meta: '3 sets x 15 reps each side', cues: ['Cable at low anchor, stand sideways', 'Lift diagonally from hip level to overhead on opposite side', 'Arms extended or slight elbow bend', 'Add trunk rotation when core stability is consistent'] },
+          { name: 'Band Press, Supine', meta: '3 sets x 20 reps', cues: ['Band under thoracic spine, one end in each hand', 'Press toward ceiling, essentially a banded chest press', 'Resistance is easy to control and modify', 'Full extension at top'] },
+          { name: 'Overhead Tricep Extension, Cable', meta: '3 sets x 15 reps', cues: ['Only when shoulder elevation is pain-free and stable', 'Cable behind, rope overhead, extend elbows forward', 'Elbows stay fixed, only forearms move', 'Functional overhead strength for daily activities'] },
+          { name: 'Tricep Kickback', meta: '3 sets x 15 reps each side | 3 to 5 lbs', cues: ['Hinged forward at hips, upper arm parallel to floor', 'Extend elbow to full extension, feel the tricep', 'Watch scapular position on the stabilizing side', 'No swinging, strict extension only'] },
+          { name: 'Glute Bridge with Serratus Punch', meta: '3 sets x 15 reps', cues: ['Bridge position held throughout, posterior pelvic tilt first', 'Punch one arm toward ceiling and fully protract', 'Do not let lumbar extend when you punch, core stays locked', 'Progress to alternating punch then SL bridge with contralateral punch'] },
+        ]
+      },
+      C: {
+        label: 'Day C — Sling Integration',
+        pill: 'functional',
+        meta: '3 sets | 10 to 15 reps | 45 sec rest',
+        exercises: [
+          { name: 'Cable D2 Flexion, Freestanding', meta: '3 sets x 10 reps each side | 3 lbs', cues: ['Start with arm low and across, cable at low anchor on opposite side', 'Lift diagonally up and across with external rotation and shoulder flexion', 'More complex than D2 extension, earn this progression', 'Forearm supinates as arm rises, this is the full pattern'] },
+          { name: 'Half-Kneeling Cable Chop, High to Low', meta: '3 sets x 12 reps each side', cues: ['Cable anchored high, half-kneeling facing 90 degrees to machine', 'Chop diagonally from high to low across body', 'Posterior oblique sling, feel the glute on the down knee side', 'Do not rotate the pelvis, trunk rotates and pelvis stays square'] },
+          { name: 'Machine Shoulder Press', meta: '3 sets x 12 reps', cues: ['Fixed path reduces anterior translation risk on right shoulder', 'Set scapula before pressing, shoulder blade down and back', 'Full extension overhead, controlled descent', 'Good substitute for seated DB press on high fatigue days'] },
+          { name: 'Serratus Punch on Cable, Standing', meta: '3 sets x 12 reps each side', cues: ['Progression from half-kneeling version', 'Standing adds full body stability demand', 'Cable at chest height, punch forward and protract fully', 'Tall posture throughout, no forward lean as you fatigue'] },
+          { name: 'Wall Clocks, Progression', meta: '3 sets x 8 reps each direction', cues: ['Palms flat on wall, elbows straight, fingers pointing upward always', 'Progress to smaller base of support than previous sessions', 'Eyes closed variation when stable', 'Stabilizing shoulder is the training target'] },
+          { name: 'Band Pull-Apart, Diagonal Variation', meta: '3 sets x 15 reps', cues: ['Pull-apart starts low on one side and arcs slightly up as it separates', 'Biases lower trap more than standard horizontal pull-apart', 'Palms up throughout', 'No upper trap, shoulder blades down and back'] },
+        ]
+      }
+    }
+  },
+  'lower-strength': {
+    label: 'Lower Strength',
+    days: {
+      A: {
+        label: 'Day A — Compound Strength',
+        pill: 'strength',
+        meta: '3 to 4 sets | 8 to 10 reps | 90 sec rest',
+        exercises: [
+          { name: 'Bilateral Leg Press', meta: '4 sets x 8 to 10 reps', cues: ['Feet slightly high on platform, biases glutes over quads', 'Moderate width, toes slightly out to manage valgus', 'Watch knee tracking, push knees out over second toe', 'Do not lock knees at top, maintain slight bend'] },
+          { name: 'Hip Thrust, Bilateral with Band Above Knees', meta: '4 sets x 10 reps', cues: ['Shoulders on bench, feet flat, knees at 90 degrees at top', 'Band above knees, push out against band throughout', 'Drive hips up with posterior pelvic tilt at the top, not lumbar extension', 'Rib cage down and tuck at the top'] },
+          { name: 'Romanian Deadlift', meta: '3 sets x 8 to 10 reps', cues: ['Start standing with bar or DBs at hips', 'Hinge at the hip, back stays long and neutral', 'Descend until hamstring tension stops you, not lumbar flexion', 'Drive hips forward to return, feel the glutes at the top'] },
+          { name: 'Single Leg Leg Press', meta: '3 sets x 10 reps each side', cues: ['Left and right tracked and progressed independently', 'Left side may load lower due to fused ankle mechanics', 'Same foot position as bilateral, high and slightly out', 'Full range without rounding the lower back at the bottom'] },
+          { name: 'Seated Hamstring Curl', meta: '3 sets x 10 reps', cues: ['Full range, start with knee fully extended', 'Control the eccentric, 3 seconds back to start', 'Watch for compensatory hip flexion', 'Progress to prone when this is consistent'] },
+          { name: 'Hip ABD Machine, Seated with Prop', meta: '3 sets x 10 reps', cues: ['Prop on front of machine to adjust position as needed', 'Push out against resistance, glute med is the target', 'Do not lean to one side to compensate', 'Slow and controlled, feel the outer hip'] },
+          { name: 'Step Up 6 to 8 Inch', meta: '3 sets x 10 reps each side', cues: ['Step up with the working leg, do not push off the back foot', 'Control the descent, eccentric glute loading', 'Watch for valgus on the stance leg during step-up', 'Progress height only when lateral hip controls the valgus consistently'] },
+        ]
+      },
+      B: {
+        label: 'Day B — Posterior Chain and Hip ER',
+        pill: 'strength',
+        meta: '3 sets | 10 to 12 reps | 60 sec rest',
+        exercises: [
+          { name: 'LAQ on Leg Extension Machine', meta: '3 sets x 10 reps each side | light weight | slight hip ER', cues: ['This is LAQ on the leg extension machine, not a full leg extension', 'Set machine to a limited arc from about 40 degrees to full extension', 'Slight hip external rotation position throughout', '2 leg concentric up, hold at top with 1 leg, slow eccentric lower on the working leg', 'Alternate working leg each set'] },
+          { name: 'Cable Pull-Through', meta: '3 sets x 20 reps', cues: ['Cable at low anchor, stand facing away', 'Hinge at hip, reach back between legs to grab cable', 'Drive hips forward to return, glute dominant', 'Teaches hip hinge pattern under resistance without spinal load'] },
+          { name: 'Standing Clam on Wall', meta: '3 sets x 15 reps each side', cues: ['Stand sideways at wall, hand for light support', 'Lift working knee into hip flexion and external rotation, like a standing clamshell', 'Hip ER is the movement, not just knee lift', 'Keep pelvis level, do not hike on the stance side'] },
+          { name: 'Straight Leg Lateral Band Walk', meta: '3 sets x 20 steps each direction', cues: ['Band above knees, not at ankles', 'Knees straight, do not allow a mini squat position', 'Step out and control the return, both directions', 'Watch for trunk lean, stay upright'] },
+          { name: 'Hip ADD Machine, Kneeling IR Variation', meta: '3 sets x 12 reps', cues: ['Kneel on the seat, inner ankles on pads', 'Squeeze ankles together against resistance', 'Start very light, this is an unfamiliar loading position', 'Directly targets valgus control from the inside'] },
+          { name: 'Prone Hamstring Curl', meta: '3 sets x 15 reps', cues: ['Prone position adds hip extension component that seated curl lacks', 'Full range, full extension to full flexion', 'Better functional carryover to gait than seated version', 'Watch for hip internal rotation compensation as you fatigue'] },
+          { name: 'Wall Sit with Ball Squeeze', meta: '3 sets x 40 seconds', cues: ['Thighs parallel to floor if knee allows, reduce range if not', 'Squeeze ball between knees throughout, adductor activation', 'The squeeze cues away from valgus', 'Add time before adding range'] },
+        ]
+      },
+      C: {
+        label: 'Day C — Single Leg and Hip Stability',
+        pill: 'strength',
+        meta: '3 sets | 10 to 12 reps | 60 sec rest',
+        exercises: [
+          { name: 'Kickstand SL RDL', meta: '3 sets x 12 reps each side', cues: ['Kickstand position, rear foot lightly touches for balance only', 'Reach across your body as if picking up a kettlebell on the opposite side', 'Hinge at the hip of the working leg', 'Feel on outside hip and deep in glute, those are your targets'] },
+          { name: 'TRX Squat', meta: '3 sets x 12 reps', cues: ['Handles at waist height, lean back slightly to unload bodyweight', 'Sit into the squat, hip back, chest tall', 'Knee tracks over second toe, do not allow valgus', 'Use handles to assist the return as needed'] },
+          { name: 'Standing Cable Hip ER', meta: '3 sets x 15 reps each side', cues: ['Ankle cuff on working leg, cable at low anchor, stand sideways to machine', 'From neutral hip, rotate working leg outward against cable resistance', 'Standing clamshell pattern, glute med and posterior glute', 'Stance leg gets single leg proprioceptive demand'] },
+          { name: 'Hip Thrust, Bilateral with Band', meta: '3 sets x 12 reps', cues: ['Same mechanics as Day A', 'Band above knees, push out against band throughout', 'Posterior pelvic tilt at the top', 'Progress load from previous session if mechanics are consistent'] },
+          { name: 'Star Excursion, Standing', meta: '3 sets x 8 directions each side', cues: ['Stand on one leg, reach free foot to clock positions', 'Stance knee soft throughout, spread and relax the toes', 'Start with anterior, lateral, and posterior directions', 'Build to all 8 directions as balance improves'] },
+          { name: 'Step Up, Progression', meta: '3 sets x 10 reps each side', cues: ['Same mechanics as Day A step up', 'Add a light KB in the ipsilateral hand when ready to progress', 'Then progress to contralateral KB hold for sling demand', 'Height increases only with Kelly'] },
+          { name: 'LAQ on Leg Extension Machine', meta: '3 sets x 10 reps each side | light weight', cues: ['Same protocol as Day B', '2 leg concentric up, hold at top with 1 leg, slow eccentric lower', 'Alternate working leg each set', 'Slight hip external rotation maintained throughout'] },
+        ]
+      }
+    }
+  },
+  'lower-endurance': {
+    label: 'Lower Endurance',
+    days: {
+      A: {
+        label: 'Day A — Tempo and Unilateral',
+        pill: 'endurance',
+        meta: '3 sets | 12 to 20 reps | 30 to 45 sec rest',
+        exercises: [
+          { name: 'Heel Elevated Goblet Squat, 4-3-1 Tempo', meta: '3 sets x 15 to 20 reps | light KB', cues: ['Heels on small plate or wedge to compensate for fused left ankle', '4 count down, 3 count hold at bottom, 1 count up', 'KB at chest, elbows in, chest tall', 'Knees track over second toe, do not allow valgus at any point'] },
+          { name: 'Luggage Squat, Bilateral', meta: '3 sets x 15 reps | KBs at sides', cues: ['KBs hanging at sides like suitcases', 'Same squat mechanics, chest up and knees out', 'Core braced throughout, resist side bending', 'Equal weight both sides, note if asymmetry develops'] },
+          { name: 'Split Squat with Band Rear Foot Support', meta: '3 sets x 12 to 15 reps each side', cues: ['Band looped around rack at ankle height, supports rear foot without dorsiflexion pressure', 'Front foot flat, rear leg relaxed in the band', 'Descend straight down, back knee tracks toward floor', 'Left ankle as rear foot addresses the lunge pattern safely'] },
+          { name: 'Kickstand SL RDL', meta: '3 sets x 12 reps each side', cues: ['Kickstand position, rear foot for balance only', 'Reach across your body as if picking up a kettlebell on the opposite side', 'Hinge at the working hip', 'Feel on outside hip and deep in glute'] },
+          { name: 'TRX Lateral Lunge', meta: '3 sets x 12 reps each side', cues: ['Handles at waist height, step out laterally', 'Sit into the lunge, working hip pushes back', 'Keep the opposite leg straight', 'TRX provides safety, use it to assist the return if needed'] },
+          { name: 'Eccentric Hip Flexor Lowering', meta: '3 sets x 12 reps', cues: ['Seated on bench edge, foot hooked under heavy KB as anchor', 'Hinge at the hip and lean torso back slowly, do not curl the spine', 'Rotate toward the opposite side as you lower', 'Control is everything, this is an eccentric and anti-rotation exercise at once'] },
+          { name: 'TRX Single Leg Squat Assist', meta: '3 sets x 10 reps each side', cues: ['Handles for safety, use them to assist the descent', 'Single leg squat, working leg only, free leg extended forward', 'Sit into it, hip back, chest tall, knee tracks over second toe', 'Progress by using handles less as strength improves'] },
+        ]
+      },
+      B: {
+        label: 'Day B — Functional and Hip Flexor',
+        pill: 'endurance',
+        meta: '3 sets | 12 to 15 reps | 30 to 45 sec rest',
+        exercises: [
+          { name: 'Reverse Lunge from Step', meta: '3 sets x 12 to 15 reps each side', cues: ['Stand on 4 to 6 inch step or plate', 'Step backward and descend, left ankle is the trailing leg', 'Rear foot does not need to load aggressively in this variation', 'Progress to deficit reverse lunge with KB when ready'] },
+          { name: 'Cable Pull-Through', meta: '3 sets x 20 reps', cues: ['Cable at low anchor, stand facing away', 'Hinge at hip, reach back between legs for cable', 'Drive hips forward to return, glute dominant', 'Low spinal load hip hinge pattern'] },
+          { name: 'Prone Hamstring Curl', meta: '3 sets x 15 reps', cues: ['Adds hip extension component that seated curl does not', 'Full range from full extension to full flexion', 'Better gait carryover than seated version', 'Watch for hip internal rotation compensation as you fatigue'] },
+          { name: 'Standing Hip Flexion on Cable', meta: '3 sets x 15 reps each side', cues: ['Ankle cuff, cable at low anchor, stand facing away', 'Lift working leg into hip flexion against cable resistance', 'Stance leg gets single leg balance and proprioceptive demand', 'Control the return, eccentric hip flexor loading'] },
+          { name: 'Wall Sit with Ball Squeeze', meta: '3 sets x 40 seconds', cues: ['Thighs parallel to floor if knee allows', 'Squeeze ball between knees throughout', 'The squeeze cues away from valgus', 'Add time before adding range'] },
+          { name: 'Eccentric Hip Flexor Lowering', meta: '3 sets x 12 reps', cues: ['Seated on bench, foot anchored under heavy KB', 'Hinge at hip and lean back slowly, no spinal flexion', 'Rotate contralaterally as you lower', 'This is eccentric and anti-rotation simultaneously'] },
+          { name: 'LAQ on Leg Extension Machine', meta: '3 sets x 10 reps each side | light weight', cues: ['Limited arc, not a full leg extension', 'Slight hip external rotation throughout', '2 leg concentric up, hold with 1 leg, slow eccentric lower on working leg', 'Alternate working leg each set'] },
+        ]
+      },
+      C: {
+        label: 'Day C — Balance and Hip Stability',
+        pill: 'functional',
+        meta: '3 sets | 10 to 15 reps | 45 sec rest',
+        exercises: [
+          { name: '4 Way Kicks', meta: '3 sets x 12 reps each direction each leg', cues: ['Forward, back, side, and across for each leg', 'Across means to midline from your starting out position, not a full cross', 'Keep knees straight and hike the pelvis on the kick, no leaning', 'Control both directions, kick and return with equal focus'] },
+          { name: 'Standing Cable Hip ER', meta: '3 sets x 15 reps each side', cues: ['Ankle cuff, cable at low anchor, stand sideways to machine', 'From neutral hip, rotate working leg outward against cable', 'Glute med and posterior glute are the targets', 'Stance leg gets single leg proprioceptive demand'] },
+          { name: 'Star Excursion Balance Training', meta: '3 sets x 8 directions each side', cues: ['Stand on one leg, reach free foot to clock positions on the floor', 'Start with anterior, lateral, and posterior, build to all 8', 'Stance knee soft throughout', 'Spread and relax the toes, no gripping'] },
+          { name: 'Lateral Hurdle Step and Hold', meta: '3 sets x 8 reps each side', cues: ['Step over 4 to 6 inch hurdle laterally and hold the landing for 3 seconds', 'Landing leg: soft knee, hip back, press knee out over second toe', 'The hold is the training stimulus, not just the step', 'Progress hurdle height when landing mechanics are consistent'] },
+          { name: 'TRX Single Leg Squat Assist', meta: '3 sets x 10 reps each side', cues: ['Use handles to control the descent safely', 'Single leg, free leg extended forward', 'Hip back, chest tall, knee tracks over second toe', 'Progress by relying on handles less over time'] },
+          { name: 'Straight Leg Lateral Band Walk', meta: '3 sets x 20 steps each direction', cues: ['Band above knees', 'Knees straight throughout, no mini squat', 'Step out and control the return', 'Stay upright, no trunk lean'] },
+          { name: 'Half-Kneeling Hip Flexor Stretch, Active', meta: '3 sets x 10 reps each side', cues: ['Down knee on pad, squeeze glute on the down leg', 'Reach overhead for thoracic extension', 'Active, not passive, glute contraction is essential', 'This addresses anterior tightness while building the antagonist pattern'] },
+        ]
+      }
+    }
+  },
+  'core': {
+    label: 'Core and Balance',
+    days: {
+      A: {
+        label: 'Day A — Stability and Anti-Movement',
+        pill: 'functional',
+        meta: '3 sets | varied reps and holds | 45 sec rest',
+        exercises: [
+          { name: 'Deadbug with Contralateral Reach', meta: '3 sets x 10 reps each side', cues: ['Supine, lumbar imprinted into the floor, maintain this throughout', 'Opposite arm and leg extend simultaneously and slowly', 'Lower back must not lift, if it does reduce the range', 'Progress by adding light DB in reaching hand for shoulder stability demand'] },
+          { name: 'Pallof Press, Half-Kneeling', meta: '3 sets x 12 reps each side', cues: ['Cable at chest height, half-kneeling perpendicular to machine', 'Press out and hold 2 seconds, resist the rotation', 'The harder the press feels the more core is working', 'Progress to standing then to with rotation'] },
+          { name: 'Bear Crawl Hold', meta: '3 sets x 20 to 30 seconds', cues: ['Quadruped position, knees hovering 1 to 2 inches off floor', 'Massive serratus and anterior core demand, isometric', 'Back flat, not rounded or arched', 'Progress to weight shifts forward, back, then lateral'] },
+          { name: 'Forearm Plank', meta: '3 sets x 30 to 45 seconds', cues: ['Forearms on floor, body in straight line', 'Do not let hips sag or pike', 'Brace the core as if bracing for a punch', 'Progress to high plank with serratus push-away when shoulder allows'] },
+          { name: 'Modified Side Plank with Hip Abduction', meta: '3 sets x 25 seconds each side', cues: ['Bottom knee down for modification', 'Body in straight line from knee to crown', 'Do not let hip sag toward floor', 'Add hip abduction at top when the basic hold is stable'] },
+          { name: 'Bird Dog', meta: '3 sets x 10 reps each side', cues: ['Quadruped, extend opposite arm and leg simultaneously', 'Back stays completely flat, no rotation or sag', 'Reach long from fingertip to toe', 'Progress by adding light KB in reaching hand'] },
+          { name: 'Foam Roller Thoracic Extension', meta: '3 sets x 8 reps', cues: ['Roller perpendicular to spine at mid-back', 'Arms crossed or hands behind head', 'Extend over the roller segmentally, not one big arch', 'Prerequisite thoracic extension work, not a stretch competition'] },
+        ]
+      },
+      B: {
+        label: 'Day B — Trunk Slings',
+        pill: 'functional',
+        meta: '3 sets | 10 to 15 reps | 45 sec rest',
+        exercises: [
+          { name: 'Glute Bridge with Alternating Serratus Punch', meta: '3 sets x 15 reps', cues: ['Bridge position held throughout, posterior pelvic tilt first', 'Alternate punching each arm toward ceiling and protracting fully', 'Do not let lumbar extend when you punch', 'Progress to SL bridge with contralateral serratus punch'] },
+          { name: 'Cable Chop, High to Low, Half-Kneeling', meta: '3 sets x 12 reps each side', cues: ['Cable anchored high, half-kneeling sideways to machine', 'Chop diagonally down and across, posterior oblique sling', 'Pelvis stays square, only trunk rotates', 'Progress to standing when balance supports it'] },
+          { name: 'Pallof Press with Rotation', meta: '3 sets x 10 reps each side', cues: ['Press out from chest, then rotate away from anchor and return', 'Teaches thoracic-pelvic dissociation', 'Control the rotation, do not let the cable pull you back', 'Directly addresses thoracic rotation restriction'] },
+          { name: 'Eccentric Hip Flexion on Bench with Contralateral Rotation', meta: '3 sets x 10 reps', cues: ['Seated on bench edge, foot hooked under heavy KB for anchor', 'Hinge at hip and lean torso back slowly without spinal flexion', 'Rotate toward opposite side as you lower', 'Eccentric hip flexor loading, anti-rotation, and thoracic rotation all at once'] },
+          { name: 'Cable Lift, Low to High', meta: '3 sets x 12 reps each side', cues: ['Cable at low anchor, stand sideways, arms extended', 'Lift diagonally up and across, anterior oblique sling', 'Add trunk rotation when core stability is consistent', 'Counterpart to the chop, train both directions'] },
+          { name: 'Thread the Needle, Quadruped', meta: '3 sets x 10 reps each side', cues: ['Quadruped position, stabilizing shoulder holds everything', 'Reach free arm under body and through, thoracic rotation', 'Then reach up toward ceiling for full rotation range', 'Watch right shoulder, do not collapse into internal rotation during movement'] },
+          { name: 'Half-Kneeling Thoracic Wall Arcs', meta: '3 sets x 10 reps each side', cues: ['Half-kneeling facing wall, hand on wall at shoulder height', 'Arc the hand up and over in a rainbow, thoracic rotation', 'Pelvis stays fixed, movement comes from between shoulder blades', 'If you feel lumbar movement you have gone too far'] },
+        ]
+      },
+      C: {
+        label: 'Day C — Balance and Proprioception',
+        pill: 'functional',
+        meta: '3 sets | holds and reps | 30 to 45 sec rest',
+        exercises: [
+          { name: 'SL Stance on Foam with Ball Circles', meta: '3 sets x 30 seconds each side', cues: ['Stand on foam on one leg', 'Circle a light ball around your body while maintaining balance', 'Spread and relax the toes, no gripping', 'Progress to eyes closed then contralateral KB hold'] },
+          { name: 'BOSU Balance, Black Side Up', meta: '3 sets x 30 seconds each side', cues: ['Black flat side up, more appropriate for your foot mechanics than dome side', 'Stand centered with soft knees', 'Relax and spread the toes wide', 'Progress to arm movements or light KB in one hand'] },
+          { name: 'Star Excursion Balance Training', meta: '3 sets x 8 directions each side', cues: ['Stand on one leg, reach free foot to marked positions', 'Start with 3 to 4 directions and build to all 8', 'Stance knee soft throughout', 'Tracks your proprioceptive progress, note which directions are hardest'] },
+          { name: 'Reactive Balance, Ball Toss', meta: '3 sets x 20 catches each side', cues: ['Stand on one leg, Kelly throws light ball from different directions', 'Catch and return without putting the free foot down', 'Trains reactive neuromuscular control', 'Start bilateral stance if needed and progress to single leg'] },
+          { name: 'Step and Hold', meta: '3 sets x 10 reps each direction', cues: ['Take a step forward, lateral, or diagonal and freeze on the landing leg', 'Hold 3 to 4 seconds, this is the training stimulus', 'Trains the deceleration and stabilization phase', 'Progress to longer holds then add arm reach in the hold position'] },
+          { name: 'Tandem Walk, Forward and Backward', meta: '3 sets x 20 steps each direction', cues: ['Heel to toe placement as narrow as possible', 'Arms out for balance, progress to arms crossed', 'Backward is harder, take your time', 'Progress to eyes closed when forward is consistent'] },
+          { name: 'Open Book, Sidelying', meta: '3 sets x 10 reps each side', cues: ['Hips stacked, knees bent, arms extended in front', 'Open the top arm toward the ceiling and back, thoracic rotation', 'Hips stay stacked, do not let the top hip roll back', 'Thoracic mobility reset at the end of the session'] },
+        ]
+      }
+    }
+  }
+};
+
+// 6-week schedule data
+// Best practice: alternating upper/lower with core mid-week. Literature supports non-consecutive same muscle group days.
+// Pattern: Upper Pull, Lower Strength, Core, Upper Push, Lower Endurance, Rest, Rest
+// Days cycle A->B->C across weeks
+const dayNames = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+
+function buildWeekSchedule(weekIdx) {
+  // Week 1-2: A days, Week 3-4: B days, Week 5-6: C days
+  const dayLetter = weekIdx < 2 ? 'A' : weekIdx < 4 ? 'B' : 'C';
+  return [
+    { type: 'training', label: 'Upper Pull', day: dayLetter, pill: 'strength' },
+    { type: 'training', label: 'Lower Strength', day: dayLetter, pill: 'strength' },
+    { type: 'training', label: 'Core and Balance', day: dayLetter, pill: 'functional' },
+    { type: 'rest', label: 'Rest', day: '', pill: 'rest' },
+    { type: 'training', label: 'Upper Push', day: dayLetter, pill: 'endurance' },
+    { type: 'training', label: 'Lower Endurance', day: dayLetter, pill: 'endurance' },
+    { type: 'rest', label: 'Rest', day: '', pill: 'rest' },
+  ];
+}
+
+// State
+let currentWorkout = 'upper-pull';
+let currentDay = 'A';
+let logData = {};
+let sessionHistory = [];
+let rehabLog = {};
+let currentWeek = 0;
+let weekSchedules = [];
+let dragSrcIdx = null;
+let pendingReset = null;
+
+// Init week schedules (6 weeks, each independently swappable)
+for (let w = 0; w < 6; w++) weekSchedules.push(buildWeekSchedule(w));
+
+// Load from storage
+try {
+  const sv = localStorage.getItem('holly_v2_log'); if (sv) logData = JSON.parse(sv);
+  const sh = localStorage.getItem('holly_v2_hist'); if (sh) sessionHistory = JSON.parse(sh);
+  const sr = localStorage.getItem('holly_v2_rehab'); if (sr) rehabLog = JSON.parse(sr);
+  const sw = localStorage.getItem('holly_v2_weeks'); if (sw) weekSchedules = JSON.parse(sw);
+} catch(e) {}
+
+// =====================================================================
+// NAVIGATION
+// =====================================================================
+function showHome() {
+  document.getElementById('splash').style.display = 'flex';
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('bottom-nav').style.display = 'none';
+}
+
+function showPage(id) {
+  document.getElementById('splash').style.display = 'none';
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  const pg = document.getElementById('page-' + id);
+  if (pg) pg.classList.add('active');
+  document.getElementById('bottom-nav').style.display = 'flex';
+  if (id === 'today') renderWorkout();
+  if (id === 'bank') renderBank();
+  if (id === 'rehab') renderRehab();
+  if (id === 'history') renderHistory();
+  if (id === 'schedule') renderSchedule();
+  window.scrollTo(0, 0);
+}
+
+// =====================================================================
+// WORKOUT
+// =====================================================================
+function selectWorkout(w, btn) {
+  currentWorkout = w;
+  document.querySelectorAll('#page-today .tab-row:first-child .tab-btn').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  renderWorkout();
+}
+
+function selectDay(d) {
+  currentDay = d;
+  ['A','B','C'].forEach(l => {
+    const b = document.getElementById('day-' + l.toLowerCase() + '-btn');
+    if (b) b.classList.toggle('active', l === d);
+  });
+  renderWorkout();
+}
+
+function renderWorkout() {
+  const container = document.getElementById('workout-display');
+  if (!container) return;
+  const workout = workouts[currentWorkout];
+  if (!workout) return;
+  const dayData = workout.days[currentDay];
+  if (!dayData || !dayData.exercises || dayData.exercises.length === 0) {
+    container.innerHTML = '<div class="card"><p style="color:var(--muted);font-size:13px;font-weight:300;">Select a workout block and day above.</p></div>';
+    return;
+  }
+  const sKey = `${currentWorkout}-${currentDay}-${todayKey()}`;
+  const meta = logData[sKey + '-meta'] || {};
+  let html = `<div class="card card-gold" style="margin-bottom:14px;">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+      <span style="font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:300;color:var(--white);">${dayData.label}</span>
+      <span class="pill ${dayData.pill}">${dayData.pill}</span>
+    </div>
+    <p style="font-size:11px;color:var(--gold);font-weight:400;">${dayData.meta}</p>
+  </div>`;
+
+  html += `<div class="session-header-card">
+    <h4>Session Details</h4>
+    <div class="session-meta-grid">
+      <div class="meta-field"><label>Date</label><input class="log-input" type="date" value="${todayKey()}" id="session-date"></div>
+      <div class="meta-field"><label>Duration (min)</label><input class="log-input" type="number" placeholder="60" id="session-duration" value="${meta.duration||''}"></div>
+    </div>
+    <div style="margin-top:12px;">
+      <label style="font-size:8px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:6px;">Effort (RPE 1 to 10)</label>
+      <div class="rpe-row">${[1,2,3,4,5,6,7,8,9,10].map(n=>`<button class="rpe-btn ${meta.rpe==n?'selected-rpe':''}" onclick="selectRPE(${n})">${n}</button>`).join('')}</div>
+    </div>
+    <div style="margin-top:12px;">
+      <label style="font-size:8px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:6px;">Pain Response</label>
+      <div class="traffic-row">
+        <button class="traffic-btn green-btn ${meta.pain==='green'?'selected':''}" onclick="selectPain('green')">None 0-3</button>
+        <button class="traffic-btn yellow-btn ${meta.pain==='yellow'?'selected':''}" onclick="selectPain('yellow')">Moderate 4-5</button>
+        <button class="traffic-btn red-btn ${meta.pain==='red'?'selected':''}" onclick="selectPain('red')">High 6+</button>
+      </div>
+    </div>
+    <textarea class="notes-input" placeholder="Session notes..." id="session-notes" onchange="saveSessionMeta()">${meta.notes||''}</textarea>
+  </div>`;
+
+  dayData.exercises.forEach((ex, idx) => {
+    const exKey = `${sKey}-ex${idx}`;
+    const savedSets = logData[exKey] || [{}];
+    html += `<div class="exercise-card" id="ex-${idx}">
+      <div class="exercise-header" onclick="toggleExercise(${idx})">
+        <span class="exercise-num">${idx+1}</span>
+        <div class="exercise-info">
+          <div class="exercise-name">${ex.name}</div>
+          <div class="exercise-meta">${ex.meta}</div>
+        </div>
+        <span class="exercise-chevron">&#9660;</span>
+      </div>
+      <div class="exercise-body">
+        <div class="cue-box"><h5>Coaching Cues</h5><ul>${ex.cues.map(c=>`<li>${c}</li>`).join('')}</ul></div>
+        <div class="log-section">
+          <h5>Log Your Sets</h5>
+          <div class="log-col-headers"><span style="min-width:38px;"></span><span>Reps</span><span>Weight (lbs)</span><span>Feel</span></div>
+          <div id="sets-${idx}">${savedSets.map((s,si)=>renderSetRow(idx,si,s)).join('')}</div>
+          <button class="add-set-btn" onclick="addSet(${idx})">+ Add Set</button>
+          <textarea class="notes-input" placeholder="Exercise notes..." onchange="saveExNotes(${idx},this.value)">${logData[exKey+'-notes']||''}</textarea>
+        </div>
+      </div>
+    </div>`;
+  });
+  container.innerHTML = html;
+}
+
+function renderSetRow(exIdx, setIdx, data) {
+  const feel = data.feel || '';
+  return `<div class="set-row">
+    <span class="set-label">Set ${setIdx+1}</span>
+    <input class="log-input" type="number" placeholder="Reps" value="${data.reps||''}" onchange="saveSet(${exIdx},${setIdx},'reps',this.value)">
+    <input class="log-input" type="text" placeholder="lbs" value="${data.weight||''}" onchange="saveSet(${exIdx},${setIdx},'weight',this.value)">
+    <select class="log-input" onchange="saveSet(${exIdx},${setIdx},'feel',this.value)" style="padding:6px 2px;font-size:14px;">
+      <option value="">-</option>
+      ${['😊','😐','😤'].map(f=>`<option value="${f}" ${feel===f?'selected':''}>${f}</option>`).join('')}
+    </select>
+  </div>`;
+}
+
+function addSet(exIdx) {
+  const sKey = `${currentWorkout}-${currentDay}-${todayKey()}`;
+  const exKey = `${sKey}-ex${exIdx}`;
+  if (!logData[exKey]) logData[exKey] = [{}];
+  logData[exKey].push({});
+  const c = document.getElementById('sets-'+exIdx);
+  c.insertAdjacentHTML('beforeend', renderSetRow(exIdx, logData[exKey].length-1, {}));
+  saveToStorage();
+}
+
+function saveSet(exIdx, setIdx, field, value) {
+  const sKey = `${currentWorkout}-${currentDay}-${todayKey()}`;
+  const exKey = `${sKey}-ex${exIdx}`;
+  if (!logData[exKey]) logData[exKey] = [];
+  if (!logData[exKey][setIdx]) logData[exKey][setIdx] = {};
+  logData[exKey][setIdx][field] = value;
+  saveToStorage();
+}
+
+function saveExNotes(exIdx, value) {
+  const sKey = `${currentWorkout}-${currentDay}-${todayKey()}`;
+  logData[`${sKey}-ex${exIdx}-notes`] = value;
+  saveToStorage();
+}
+
+function saveSessionMeta() {
+  const sKey = `${currentWorkout}-${currentDay}-${todayKey()}`;
+  if (!logData[sKey+'-meta']) logData[sKey+'-meta'] = {};
+  logData[sKey+'-meta'].duration = document.getElementById('session-duration')?.value || '';
+  logData[sKey+'-meta'].notes = document.getElementById('session-notes')?.value || '';
+  saveToStorage();
+}
+
+function selectRPE(n) {
+  const sKey = `${currentWorkout}-${currentDay}-${todayKey()}`;
+  if (!logData[sKey+'-meta']) logData[sKey+'-meta'] = {};
+  logData[sKey+'-meta'].rpe = n;
+  document.querySelectorAll('.rpe-btn').forEach(b => b.classList.toggle('selected-rpe', parseInt(b.textContent)===n));
+  saveToStorage();
+}
+
+function selectPain(level) {
+  const sKey = `${currentWorkout}-${currentDay}-${todayKey()}`;
+  if (!logData[sKey+'-meta']) logData[sKey+'-meta'] = {};
+  logData[sKey+'-meta'].pain = level;
+  document.querySelectorAll('.traffic-btn').forEach(b => b.classList.remove('selected'));
+  event.target.classList.add('selected');
+  saveToStorage();
+}
+
+function toggleExercise(idx) {
+  document.getElementById('ex-'+idx)?.classList.toggle('open');
+}
+
+// =====================================================================
+// SCHEDULE + DRAG AND DROP
+// =====================================================================
+function renderSchedule() {
+  document.getElementById('week-label-main').textContent = 'Week ' + (currentWeek+1);
+  document.getElementById('prev-week-btn').disabled = currentWeek === 0;
+  document.getElementById('next-week-btn').disabled = currentWeek === 5;
+
+  const grid = document.getElementById('schedule-grid');
+  const week = weekSchedules[currentWeek];
+  let html = '';
+  week.forEach((item, idx) => {
+    const isRest = item.type === 'rest';
+    html += `<div class="schedule-day ${isRest?'rest-day':'training-day'}" 
+      id="sday-${idx}"
+      draggable="true"
+      data-idx="${idx}">
+      <span class="drag-handle">&#8942;&#8942;</span>
+      <span class="sched-day-name">${dayNames[idx]}</span>
+      <div class="sched-content">
+        <div class="sched-title">${item.label}</div>
+        ${item.day ? `<div class="sched-sub">Day ${item.day}</div>` : ''}
+      </div>
+      <span class="sched-pill ${item.pill}">${isRest ? 'Rest' : item.pill}</span>
+    </div>`;
+  });
+  grid.innerHTML = html;
+
+  // Attach drag events
+  grid.querySelectorAll('.schedule-day').forEach(el => {
+    el.addEventListener('dragstart', onDragStart);
+    el.addEventListener('dragover', onDragOver);
+    el.addEventListener('drop', onDrop);
+    el.addEventListener('dragend', onDragEnd);
+    // Touch support
+    el.addEventListener('touchstart', onTouchStart, { passive: true });
+    el.addEventListener('touchmove', onTouchMove, { passive: false });
+    el.addEventListener('touchend', onTouchEnd);
+  });
+}
+
+function changeWeek(dir) {
+  currentWeek = Math.max(0, Math.min(5, currentWeek + dir));
+  renderSchedule();
+}
+
+// Mouse drag
+function onDragStart(e) {
+  dragSrcIdx = parseInt(e.currentTarget.dataset.idx);
+  e.currentTarget.classList.add('dragging');
+  e.dataTransfer.effectAllowed = 'move';
+}
+function onDragOver(e) {
+  e.preventDefault();
+  e.dataTransfer.dropEffect = 'move';
+  document.querySelectorAll('.schedule-day').forEach(d => d.classList.remove('drag-over'));
+  e.currentTarget.classList.add('drag-over');
+}
+function onDrop(e) {
+  e.preventDefault();
+  const targetIdx = parseInt(e.currentTarget.dataset.idx);
+  if (dragSrcIdx !== null && dragSrcIdx !== targetIdx) {
+    swapDays(dragSrcIdx, targetIdx);
+  }
+}
+function onDragEnd(e) {
+  document.querySelectorAll('.schedule-day').forEach(d => { d.classList.remove('dragging'); d.classList.remove('drag-over'); });
+  dragSrcIdx = null;
+}
+
+// Touch drag
+let touchSrcIdx = null;
+let touchClone = null;
+let touchOffsetX = 0, touchOffsetY = 0;
+
+function onTouchStart(e) {
+  touchSrcIdx = parseInt(e.currentTarget.dataset.idx);
+  const rect = e.currentTarget.getBoundingClientRect();
+  touchOffsetX = e.touches[0].clientX - rect.left;
+  touchOffsetY = e.touches[0].clientY - rect.top;
+  touchClone = e.currentTarget.cloneNode(true);
+  touchClone.style.cssText = `position:fixed;z-index:999;opacity:0.85;pointer-events:none;width:${rect.width}px;border:1px solid var(--gold);border-radius:12px;`;
+  document.body.appendChild(touchClone);
+  e.currentTarget.style.opacity = '0.3';
+}
+function onTouchMove(e) {
+  e.preventDefault();
+  const t = e.touches[0];
+  if (touchClone) {
+    touchClone.style.left = (t.clientX - touchOffsetX) + 'px';
+    touchClone.style.top = (t.clientY - touchOffsetY) + 'px';
+  }
+  document.querySelectorAll('.schedule-day').forEach(d => {
+    d.classList.remove('drag-over');
+    const r = d.getBoundingClientRect();
+    if (t.clientX >= r.left && t.clientX <= r.right && t.clientY >= r.top && t.clientY <= r.bottom) {
+      d.classList.add('drag-over');
+    }
+  });
+}
+function onTouchEnd(e) {
+  if (touchClone) { touchClone.remove(); touchClone = null; }
+  document.querySelectorAll('.schedule-day').forEach(d => {
+    d.style.opacity = '';
+    if (d.classList.contains('drag-over')) {
+      const targetIdx = parseInt(d.dataset.idx);
+      if (touchSrcIdx !== null && touchSrcIdx !== targetIdx) swapDays(touchSrcIdx, targetIdx);
+      d.classList.remove('drag-over');
+    }
+  });
+  touchSrcIdx = null;
+}
+
+function swapDays(a, b) {
+  const week = weekSchedules[currentWeek];
+  [week[a], week[b]] = [week[b], week[a]];
+  saveWeeksToStorage();
+  renderSchedule();
+  showToast('Days swapped');
+}
+
+// =====================================================================
+// EXERCISE BANK
+// =====================================================================
+const bankData = [
+  { group: 'Posterior Shoulder and Rotator Cuff', exercises: [
+    { name: 'Cable ER at 90 Deg Abduction, Scapular Plane', tags: ['Infraspinatus','Teres Minor'], desc: 'Primary ER strengthening in functional range. Arm at 90 deg abduction, rotate forearm toward ceiling.' },
+    { name: 'Face Pull with Rope', tags: ['Posterior Cuff','Mid Trap'], desc: 'Pull rope to forehead, elbows high, finish in ER. Cable at eye level.' },
+    { name: 'Sidelying ER with Dumbbell', tags: ['Infraspinatus','Teres Minor'], desc: 'Rotator cuff endurance. 3 lbs max. Slow and controlled.' },
+    { name: 'Field Goal ER with Band', tags: ['Posterior Cuff'], desc: 'Elbows at 90 deg, upper arms at shoulder height. Rotate forearms up against band.' },
+    { name: 'Band Pull-Apart', tags: ['Posterior Cuff','Mid Trap'], desc: 'Horizontal abduction with ER bias. Palms up. Progress to diagonal arc.' },
+  ]},
+  { group: 'Serratus Anterior and Lower Trap', exercises: [
+    { name: 'High Plank Serratus Push-Away', tags: ['Serratus Anterior'], desc: 'In high plank, push floor away and let shoulder blades spread. Hold 2 sec at top.' },
+    { name: 'Serratus Punch on Cable', tags: ['Serratus Anterior'], desc: 'Cable at chest height, punch forward and fully protract at end range.' },
+    { name: 'LT Wall Liftoff in Y Position', tags: ['Lower Trap'], desc: 'Arms in Y against wall. Reach long then lift off. Reach long, then lift is the correct cue.' },
+    { name: 'Y-T-W on Incline Bench', tags: ['Lower Trap','Mid Trap','Posterior Cuff'], desc: 'Y biases lower trap, T biases mid trap, W biases posterior cuff. Thumbs up in all positions.' },
+    { name: 'Wall Slide', tags: ['Serratus','Lower Trap'], desc: 'Forearms on wall, slide up. Band at elbows then wrists to progress.' },
+    { name: 'Wall Clocks', tags: ['Shoulder Stability'], desc: 'Palms flat on wall, elbows straight, fingers pointing upward always. Tap clock positions and return to center.' },
+    { name: 'Bear Crawl Hold', tags: ['Serratus','Anterior Core'], desc: 'Quadruped with knees hovering 1 to 2 inches. Isometric serratus and core demand.' },
+  ]},
+  { group: 'Lats, Biceps, and Upper Back', exercises: [
+    { name: 'Seated Cable Row, Neutral Grip', tags: ['Lats','Mid Trap','Rhomboids'], desc: 'Primary row. Scapular retraction initiates before arm pull.' },
+    { name: 'Lat Pulldown, Neutral Close Grip', tags: ['Lats'], desc: 'Elbows to back pockets. Lean back 10 to 15 degrees. Bar to upper chest.' },
+    { name: 'TRX Row', tags: ['Lats','Mid Trap','Biceps'], desc: 'Bodyweight row. Scale by angle. Chest to handles.' },
+    { name: 'Straight Arm Lat Pulldown', tags: ['Lats'], desc: 'Arms extended. Pull bar from overhead to thighs using lats only.' },
+    { name: 'Cable Supinated Curl', tags: ['Biceps'], desc: 'Palms up throughout. Upper arm fixed. Full range.' },
+    { name: 'Hammer Curl', tags: ['Brachialis','Biceps'], desc: 'Neutral grip. Functional carry strength.' },
+  ]},
+  { group: 'Deltoid and Shoulder Press', exercises: [
+    { name: 'Cable Lateral Raise, Scapular Plane', tags: ['Deltoid'], desc: '30 degrees forward of frontal plane. Stop at shoulder height until scapular control is consistent.' },
+    { name: 'Seated DB Press, Scapular Plane', tags: ['Deltoid','Serratus'], desc: 'Not straight up or straight out. 30 to 45 degrees forward. Very light load initially.' },
+    { name: 'Machine Shoulder Press', tags: ['Deltoid'], desc: 'Fixed path. Reduces anterior translation risk. Good on high fatigue days.' },
+  ]},
+  { group: 'Triceps', exercises: [
+    { name: 'Cable Tricep Pushdown, Rope', tags: ['Triceps'], desc: 'Elbows fixed at sides. Full extension at bottom.' },
+    { name: 'Skull Crusher, Supine Unilateral', tags: ['Triceps'], desc: 'Stabilizing shoulder packed neutral. 3 sec descent. Stabilizing shoulder stays in neutral rotation.' },
+    { name: 'Overhead Tricep Extension, Cable', tags: ['Triceps'], desc: 'Only when shoulder elevation is pain-free. Elbows fixed.' },
+    { name: 'Tricep Kickback', tags: ['Triceps'], desc: 'Upper arm parallel to floor. Full extension. No swinging.' },
+  ]},
+  { group: 'Glutes', exercises: [
+    { name: 'Hip Thrust, Bilateral', tags: ['Glute Max','Glute Med'], desc: 'Best glute builder. Posterior pelvic tilt at top, not lumbar extension. Band above knees.' },
+    { name: 'Kickstand SL RDL', tags: ['Glute Med','Glute Max','Hamstrings'], desc: 'Kickstand reduces balance demand. Reach across body as if picking up a kettlebell.' },
+    { name: 'Hip ABD Machine', tags: ['Glute Med'], desc: 'Seated with prop. Push out slowly. Do not lean to compensate.' },
+    { name: 'Standing Cable Hip ER', tags: ['Glute Med','Deep Rotators'], desc: 'Ankle cuff, cable at low anchor. Rotate working leg outward. Stance leg gets single leg challenge.' },
+    { name: 'Standing Clam on Wall', tags: ['Glute Med'], desc: 'Hip ER is the movement, not just knee lift. Keep pelvis level.' },
+    { name: 'Lateral Band Walk, Straight Leg', tags: ['Glute Med'], desc: 'Band above knees. Knees straight. Both directions.' },
+  ]},
+  { group: 'Hamstrings and Hip Hinge', exercises: [
+    { name: 'Romanian Deadlift', tags: ['Hamstrings','Glutes'], desc: 'Hip hinge under load. Back long and neutral. Hamstring tension stops the descent.' },
+    { name: 'Seated Hamstring Curl', tags: ['Hamstrings'], desc: 'Full range. 3 sec eccentric return.' },
+    { name: 'Prone Hamstring Curl', tags: ['Hamstrings'], desc: 'Adds hip extension component. Better functional carryover to gait.' },
+    { name: 'Cable Pull-Through', tags: ['Hamstrings','Glutes'], desc: 'Hip hinge facing away from cable. Drive hips forward to return.' },
+  ]},
+  { group: 'Quads and Knee Stability', exercises: [
+    { name: 'Bilateral Leg Press', tags: ['Quads','Glutes'], desc: 'Feet high and slightly wide. Watch valgus throughout. Do not lock knees at top.' },
+    { name: 'Single Leg Leg Press', tags: ['Quads','Glutes'], desc: 'Left and right tracked independently. Left may load lower due to fused ankle.' },
+    { name: 'Goblet Squat, Heel Elevated', tags: ['Quads','Glutes'], desc: '4-3-1 tempo. KB at chest. Heels on wedge compensates for fused left ankle.' },
+    { name: 'Luggage Squat', tags: ['Quads','Glutes','Core'], desc: 'KBs at sides. Resist side bending. Equal weight both sides.' },
+    { name: 'LAQ on Leg Extension Machine', tags: ['VMO'], desc: 'Limited arc. Slight hip ER. 2 leg concentric up, 1 leg hold, slow eccentric lower on working leg. Alternate sides.' },
+    { name: 'Step Up 6 to 8 Inch', tags: ['Quads','Glutes'], desc: 'Step up with working leg, no push-off from back foot. Control descent.' },
+    { name: 'Wall Sit with Ball Squeeze', tags: ['Quads','Adductors'], desc: 'Squeeze cues away from valgus. Add time before adding range.' },
+  ]},
+  { group: 'Hip Flexors', exercises: [
+    { name: 'Half-Kneeling Hip Flexor Stretch, Active', tags: ['Hip Flexors'], desc: 'Glute squeeze on down leg. Reach overhead for thoracic extension. Active, not passive.' },
+    { name: 'Eccentric Hip Flexor Lowering', tags: ['Hip Flexors'], desc: 'Seated, foot anchored under KB. Hinge back at hip with contralateral rotation. Eccentric and anti-rotation.' },
+    { name: 'Standing Hip Flexion on Cable', tags: ['Hip Flexors'], desc: 'Ankle cuff, cable low, stand facing away. Trains hip flexors concentrically and eccentrically.' },
+  ]},
+  { group: 'Core and Trunk Slings', exercises: [
+    { name: 'Deadbug', tags: ['Anterior Core','Anti-Extension'], desc: 'Lumbar imprinted. Contralateral arm and leg extend. Back must not lift.' },
+    { name: 'Pallof Press', tags: ['Anti-Rotation','Core'], desc: 'Press out and resist the cable pulling you to rotate. Half-kneeling to standing.' },
+    { name: 'Bird Dog', tags: ['Posterior Sling','Core'], desc: 'Back flat. Reach long. No rotation or sag.' },
+    { name: 'Cable Chop and Lift', tags: ['Trunk Slings','Core'], desc: 'Chop is posterior oblique sling. Lift is anterior oblique sling. Train both directions.' },
+    { name: 'Eccentric Hip Flexion on Bench', tags: ['Hip Flexors','Anti-Rotation'], desc: 'Eccentric hip flexor loading with contralateral rotation. Multiple demands simultaneously.' },
+    { name: 'Glute Bridge with Serratus Punch', tags: ['Posterior Sling','Serratus'], desc: 'Bridge held throughout. Punch and protract. Do not let lumbar extend when punching.' },
+  ]},
+  { group: 'Balance and Proprioception', exercises: [
+    { name: 'SL Stance on Foam', tags: ['Proprioception','Balance'], desc: 'Spread and relax toes. Progress to arm movements, eyes closed, ball circles.' },
+    { name: 'BOSU Balance, Black Side Up', tags: ['Proprioception','Balance'], desc: 'Black side up appropriate for foot mechanics. Progress to arm movements and KB hold.' },
+    { name: 'Star Excursion, Clock Reach', tags: ['Proprioception','Hip Stability'], desc: 'Reach free foot to clock positions. Start 3 to 4 directions. Build to all 8.' },
+    { name: 'Lateral Hurdle Step and Hold', tags: ['Balance','Hip Stability'], desc: 'Step over hurdle and hold landing 3 to 4 seconds. The hold is the training stimulus.' },
+    { name: 'Tandem Walk', tags: ['Balance','Proprioception'], desc: 'Heel to toe. Forward and backward. Progress to eyes closed.' },
+    { name: 'Reactive Ball Toss', tags: ['Reactive Balance'], desc: 'Single leg stance. Catch and return ball from different directions without putting free foot down.' },
+  ]},
+];
+
+function renderBank() {
+  const c = document.getElementById('bank-content');
+  if (!c) return;
+  let html = '';
+  bankData.forEach((group, gi) => {
+    html += `<div class="muscle-group" id="bank-group-${gi}">
+      <div class="muscle-group-header" onclick="toggleBankGroup(${gi})">
+        <h3>${group.group}</h3><span style="color:var(--gold);font-size:11px;">&#9660;</span>
+      </div>
+      <div class="muscle-group-body">`;
+    group.exercises.forEach(ex => {
+      html += `<div class="bank-exercise">
+        <h4>${ex.name}</h4>
+        <div>${ex.tags.map(t=>`<span class="bank-tag">${t}</span>`).join('')}</div>
+        <p>${ex.desc}</p>
+      </div>`;
+    });
+    html += `</div></div>`;
+  });
+  c.innerHTML = html;
+}
+
+function toggleBankGroup(gi) { document.getElementById('bank-group-'+gi)?.classList.toggle('open'); }
+
+// =====================================================================
+// REHAB
+// =====================================================================
+const rehabLE = [
+  { name: 'Straight Leg Side Step', rx: '3 sets x 15 steps each direction', cues: 'Knees straight throughout, this is a straight leg movement. Step out 15 steps in one direction then return. No trunk lean, stay upright. Fire the outer hip, not the quad.' },
+  { name: '4 Way Kicks', rx: '3 sets x 12 reps each direction each leg', cues: 'Forward, back, side, and across for each leg. Across means to midline only, not a full crossover. Keep knees straight and hike the pelvis on the kick. No leaning to compensate. Control both directions equally.' },
+  { name: 'Bilateral Bridge with ER, Green Band', rx: '3 sets x 10 reps with 3 pumps at top', cues: 'Green band tied just above knees. Drive knees out against band throughout. Posterior pelvic tilt at top, not lumbar extension. Hold the top and do 3 small pump pulses against the band before lowering.' },
+  { name: 'SL Balance on Foam, March and Toe Tap', rx: '3 sets x 30 seconds each side', cues: 'March: lift opposite knee and hold. Toe tap: reach free foot forward and tap the floor lightly. Spread and relax the toes throughout. No gripping with the toes. Progress to circling a ball around your body.' },
+  { name: 'Kickstand SL RDL', rx: '3 sets x 10 reps each side', cues: 'Rear foot lightly touches for balance only. Reach across your body as if picking up a kettlebell on the opposite side. Hinge at the working hip, keep the back long. Feel on outside hip and deep in glute.' },
+  { name: 'Sassy Hips (Hip Hiking off Step)', rx: '3 sets x 15 reps each side', cues: 'Stand on step on one leg. Drop the opposite hip all the way down like your foot is on an elevator going down. Then hike it up extra high above level on the way up. Keep the trunk upright throughout. This is a lateral hip exercise.' },
+  { name: 'Sidelying Clam with Band', rx: '3 sets x 15 reps each side', cues: 'Hips stacked. Open top knee against band, external rotation only. Do not roll the pelvis back. Glute med is the target, not the hip flexor. Control the return.' },
+];
+
+const rehabUE = [
+  { name: 'Prone Shoulder Extension', rx: '3 sets x 15 reps', cues: 'Bent over on a lifting bench, one hand and one knee on the bench. Keep shoulders level and pelvis level. Engage the shoulder blade first before lifting the arm. Palm faces IN (thumb pointing down), not thumb up.' },
+  { name: 'Body Blade, Single Arm', rx: '3 sets x 20 seconds each position', cues: 'Positions: ER/IR at 0 degrees, flexion/extension, abduction/adduction, up/down. Keep the blade vibrating with small rapid movements at 0 degrees abduction, arm at your side. Control the plane of motion in each position.' },
+  { name: 'Body Blade, Double Arm', rx: '3 sets x 20 seconds', cues: 'Both arms holding blade at 90 degrees shoulder flexion. Up and down oscillation pattern. Serratus and anterior core activation.' },
+  { name: 'Serratus Roll Up on Wall', rx: '3 sets x 12 reps', cues: 'Forearm rolls up the wall while pushing into the foam roller against the wall. Keep elbows and wrists in line with shoulders at all times. Palms facing toward each other. Relax the upper traps throughout.' },
+  { name: 'Wall Ball', rx: '2 sets x 10 to 12 reps each pattern', cues: 'Ball between hand and wall. Patterns: up/down, side/side, circles CW and CCW. Push into ball for shoulder stability through each reach. Maintain scapular position throughout.' },
+  { name: 'Wall Clocks', rx: '3 sets x 8 reps each direction each side', cues: 'Palms flat on wall, elbows straight. Fingers pointing upward always. Tap 1, 3, and 5 o clock returning to center each time. Repeat with other hand to 11, 9, and 7 o clock.' },
+  { name: 'Counter Push-Ups', rx: '3 sets x 12 reps', cues: 'Hands on counter, body in plank line. Push up and add serratus protraction at the top. Control the descent.' },
+  { name: 'High Plank Serratus Push-Away', rx: '3 sets x 12 reps', cues: 'High plank. Push the floor away and let shoulder blades spread apart. Hold 2 seconds at the top. This is not a push-up, just the serratus protraction at the top of the movement.' },
+  { name: 'ER Step Outs at 0 Degrees', rx: '3 sets x 15 reps each side', cues: 'Band around wrists, arms at sides, elbows bent 90 degrees. Step one arm out to neutral ER/IR position, not full ER. Hold 2 seconds. Return. Keep elbow at side throughout.' },
+  { name: 'Bent Over Rows', rx: '3 sets x 10 reps | up to 10 lbs', cues: 'Bent over and propped on the weight bench, one knee and one hand. Shoulders level. Elbow tracks straight back. Scapular retraction initiates before the row. No trunk rotation at any point.' },
+];
+
+function renderRehab() {
+  renderRehabSection('rehab-le-content', rehabLE, 'LE', 'le-progress-text');
+  renderRehabSection('rehab-ue-content', rehabUE, 'UE', 'ue-progress-text');
+}
+
+function renderRehabSection(containerId, exercises, prefix, progressId) {
+  const c = document.getElementById(containerId);
+  if (!c) return;
+  const today = todayKey();
+  let html = '';
+  let doneCount = 0;
+  exercises.forEach((ex, idx) => {
+    const key = `${prefix}-${idx}-${today}`;
+    const done = !!rehabLog[key];
+    if (done) doneCount++;
+    const note = rehabLog[key+'-note'] || '';
+    html += `<div class="rehab-item ${done?'completed-item':''}" id="rehab-${prefix}-${idx}">
+      <div class="rehab-row">
+        <div class="rehab-check-circle ${done?'done':''}" onclick="toggleRehabCheck('${prefix}',${idx},event)" id="check-${prefix}-${idx}"></div>
+        <div class="rehab-main" onclick="toggleRehabItem('${prefix}',${idx})">
+          <div class="rehab-name">${ex.name}</div>
+          <div class="rehab-rx">${ex.rx}</div>
+        </div>
+        <span class="rehab-chevron" onclick="toggleRehabItem('${prefix}',${idx})">&#9660;</span>
+      </div>
+      <div class="rehab-detail">
+        <div class="rehab-cue-text">${ex.cues}</div>
+        <textarea class="rehab-note-input" placeholder="Notes..." onchange="saveRehabNote('${prefix}',${idx},this.value)">${note}</textarea>
+      </div>
+    </div>`;
+  });
+  c.innerHTML = html;
+  updateRehabProgress(prefix, progressId, doneCount, exercises.length);
+}
+
+function toggleRehabItem(prefix, idx) {
+  document.getElementById(`rehab-${prefix}-${idx}`)?.classList.toggle('open');
+}
+
+function toggleRehabCheck(prefix, idx, e) {
+  e.stopPropagation();
+  const key = `${prefix}-${idx}-${todayKey()}`;
+  rehabLog[key] = !rehabLog[key];
+  const circle = document.getElementById(`check-${prefix}-${idx}`);
+  const item = document.getElementById(`rehab-${prefix}-${idx}`);
+  if (circle) circle.classList.toggle('done', rehabLog[key]);
+  if (item) item.classList.toggle('completed-item', rehabLog[key]);
+  saveRehabToStorage();
+
+  const exercises = prefix === 'LE' ? rehabLE : rehabUE;
+  const progressId = prefix === 'LE' ? 'le-progress-text' : 'ue-progress-text';
+  const doneCount = exercises.filter((_, i) => !!rehabLog[`${prefix}-${i}-${todayKey()}`]).length;
+  updateRehabProgress(prefix, progressId, doneCount, exercises.length);
+
+  if (doneCount === exercises.length) {
+    pendingReset = prefix;
+    const overlay = document.getElementById('reset-overlay');
+    document.getElementById('reset-overlay-title').textContent = prefix === 'LE' ? 'Lower Extremity Complete!' : 'Upper Extremity Complete!';
+    document.getElementById('reset-overlay-text').textContent = `You have completed all ${exercises.length} exercises in this section. Reset it for the next round?`;
+    overlay.style.display = 'flex';
+  }
+}
+
+function updateRehabProgress(prefix, progressId, done, total) {
+  const el = document.getElementById(progressId);
+  if (el) el.textContent = `${done} / ${total}`;
+}
+
+function confirmReset() {
+  if (!pendingReset) return;
+  const prefix = pendingReset;
+  const exercises = prefix === 'LE' ? rehabLE : rehabUE;
+  const today = todayKey();
+  exercises.forEach((_, idx) => { rehabLog[`${prefix}-${idx}-${today}`] = false; });
+  saveRehabToStorage();
+  document.getElementById('reset-overlay').style.display = 'none';
+  pendingReset = null;
+  renderRehab();
+  showToast('Section reset. Good work!');
+}
+
+function cancelReset() {
+  document.getElementById('reset-overlay').style.display = 'none';
+  pendingReset = null;
+}
+
+function saveRehabNote(prefix, idx, value) {
+  rehabLog[`${prefix}-${idx}-${todayKey()}-note`] = value;
+  saveRehabToStorage();
+}
+
+// =====================================================================
+// HISTORY
+// =====================================================================
+function renderHistory() {
+  const c = document.getElementById('history-content');
+  if (!c) return;
+  if (!sessionHistory.length) {
+    c.innerHTML = '<div class="empty-state"><p>No sessions logged yet.<br>Complete your first workout to see your history here.</p></div>';
+    return;
+  }
+  const sorted = [...sessionHistory].sort((a,b) => new Date(b.date)-new Date(a.date));
+  c.innerHTML = sorted.map(s => `<div class="history-card">
+    <div class="history-date">${formatDate(s.date)}</div>
+    <div class="history-title">${s.label} — Day ${s.day}</div>
+    <div class="history-tags">
+      ${s.duration?`<span class="history-tag">&#9201; ${s.duration} min</span>`:''}
+      ${s.rpe?`<span class="history-tag">RPE ${s.rpe}/10</span>`:''}
+      ${s.pain?`<span class="history-tag">${s.pain==='green'?'No pain':s.pain==='yellow'?'Moderate':'High pain'}</span>`:''}
+    </div>
+    ${s.notes?`<p style="font-size:12px;color:var(--muted);margin-top:7px;font-weight:300;">${s.notes}</p>`:''}
+  </div>`).join('');
+}
+
+// =====================================================================
+// SAVE / EXPORT
+// =====================================================================
+function saveSession() {
+  const sKey = `${currentWorkout}-${currentDay}-${todayKey()}`;
+  const meta = logData[sKey+'-meta'] || {};
+  const workout = workouts[currentWorkout];
+  const entry = {
+    date: todayKey(), workout: currentWorkout, day: currentDay,
+    label: workout?.label || currentWorkout,
+    duration: meta.duration, rpe: meta.rpe, pain: meta.pain, notes: meta.notes
+  };
+  const filtered = sessionHistory.filter(s => !(s.date===entry.date && s.workout===entry.workout && s.day===entry.day));
+  filtered.push(entry);
+  sessionHistory = filtered;
+  try { localStorage.setItem('holly_v2_hist', JSON.stringify(sessionHistory)); } catch(e) {}
+  showToast('Session saved successfully');
+}
+
+function exportLog() {
+  const sKey = `${currentWorkout}-${currentDay}-${todayKey()}`;
+  const workout = workouts[currentWorkout];
+  const dayData = workout?.days[currentDay];
+  const meta = logData[sKey+'-meta'] || {};
+  if (!dayData?.exercises?.length) { showToast('No workout data to export'); return; }
+  let text = `ORTHOCARE CONCIERGE LLC | Kelly Davis\n${'='.repeat(42)}\nCLIENT: Holly Harlow\nDATE: ${formatDate(todayKey())}\nSESSION: ${workout.label} — Day ${currentDay}\n`;
+  if (meta.duration) text += `DURATION: ${meta.duration} minutes\n`;
+  if (meta.rpe) text += `EFFORT (RPE): ${meta.rpe}/10\n`;
+  if (meta.pain) text += `PAIN RESPONSE: ${meta.pain.toUpperCase()}\n`;
+  text += `${'='.repeat(42)}\n\n`;
+  dayData.exercises.forEach((ex, idx) => {
+    const sets = logData[`${sKey}-ex${idx}`] || [];
+    const notes = logData[`${sKey}-ex${idx}-notes`] || '';
+    text += `${idx+1}. ${ex.name}\n   ${ex.meta}\n`;
+    sets.forEach((s,si) => { if (s.reps||s.weight) text += `   Set ${si+1}: ${s.reps||'-'} reps @ ${s.weight||'-'} lbs ${s.feel||''}\n`; });
+    if (notes) text += `   Notes: ${notes}\n`;
+    text += '\n';
+  });
+  if (meta.notes) text += `SESSION NOTES:\n${meta.notes}\n\n`;
+  text += `${'='.repeat(42)}\nPROPRIETARY — OrthoCare Concierge LLC | Kelly Davis\n`;
+  share(text, `Holly Harlow Session ${formatDate(todayKey())}`);
+}
+
+function exportRehab() {
+  const today = todayKey();
+  let text = `ORTHOCARE CONCIERGE LLC | Kelly Davis\nHOME REHAB LOG\nHolly Harlow | ${formatDate(today)}\n${'='.repeat(42)}\n\nLOWER EXTREMITY:\n`;
+  rehabLE.forEach((ex,idx) => {
+    const done = rehabLog[`LE-${idx}-${today}`] ? '✓' : '○';
+    const note = rehabLog[`LE-${idx}-${today}-note`] || '';
+    text += `${done} ${ex.name} (${ex.rx})\n${note?`   Notes: ${note}\n`:''}`;
+  });
+  text += `\nUPPER EXTREMITY:\n`;
+  rehabUE.forEach((ex,idx) => {
+    const done = rehabLog[`UE-${idx}-${today}`] ? '✓' : '○';
+    const note = rehabLog[`UE-${idx}-${today}-note`] || '';
+    text += `${done} ${ex.name} (${ex.rx})\n${note?`   Notes: ${note}\n`:''}`;
+  });
+  text += `\n${'='.repeat(42)}\nPROPRIETARY — OrthoCare Concierge LLC | Kelly Davis\n`;
+  share(text, `Holly Rehab Log ${formatDate(today)}`);
+}
+
+function share(text, title) {
+  if (navigator.share) {
+    navigator.share({ title, text }).catch(() => copyToClipboard(text));
+  } else {
+    copyToClipboard(text);
+  }
+}
+
+// =====================================================================
+// UTILITIES
+// =====================================================================
+function todayKey() { return new Date().toISOString().split('T')[0]; }
+function formatDate(d) { return new Date(d+'T12:00:00').toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'}); }
+function saveToStorage() { try { localStorage.setItem('holly_v2_log', JSON.stringify(logData)); } catch(e) {} }
+function saveRehabToStorage() { try { localStorage.setItem('holly_v2_rehab', JSON.stringify(rehabLog)); } catch(e) {} }
+function saveWeeksToStorage() { try { localStorage.setItem('holly_v2_weeks', JSON.stringify(weekSchedules)); } catch(e) {} }
+function copyToClipboard(text) {
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(text).then(() => showToast('Copied — paste into a message to Kelly'));
+  } else {
+    const ta = document.createElement('textarea');
+    ta.value = text; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta);
+    showToast('Copied — paste into a message to Kelly');
+  }
+}
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3000);
+}
+
+// Init
+renderWorkout();
+</script>
+</body>
+</html>
